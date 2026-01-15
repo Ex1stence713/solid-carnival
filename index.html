@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Zayden | Portfolio</title>
+    <title>Zayden</title>
     <meta name="description" content="Paweł Zayden Gajewski – programista Discord, boty, strony internetowe, skrypty MTA. Portfolio i kontakt.">
     <meta name="theme-color" content="#00d4ff">
 
@@ -16,7 +16,7 @@
 
     <!-- NAV -->
     <nav>
-        <div class="logo">ZAYDEN</div>
+        <div class="logo">Zaydenus</div>
 
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
 
@@ -24,13 +24,17 @@
             <li><a href="#home">Start</a></li>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#skills">Umiejętności</a></li>
+            <li><a href="#tech-stack">Tech Stack</a></li>
             <li><a href="#projects">Projekty</a></li>
-            <li><a href="#pricing">Cennik</a></li>
+            <li><a href="#why-me">Czemu ja?</a></li>
+            <li><a href="cennik.html">Cennik</a></li>
+            <li><a href="#case-study">Case Study</a></li>
+            <li><a href="opinie.html">Opinie</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
 
-        <button class="theme-toggle"></button>
+        <div class="logo">BIO</div>
     </nav>
 
     <main class="container">
@@ -46,7 +50,7 @@
             >
 
             <h1>Paweł Zayden Gajewski</h1>
-            <p class="hero-subtitle">Programista • Discord • Web</p>
+            <p class="hero-subtitle">Programista • Web</p>
 
             <div class="hero-status">
                 <span class="status-indicator"></span>
@@ -60,19 +64,21 @@
 
             <div class="about-content">
                 <p>
-                    Cześć, jestem Paweł. Mam 19 lat i zajmuję się programowaniem botów Discord,
-                    stron internetowych oraz skryptów pod serwery RP.
+Cześć, jestem Paweł. Mam 19 lat i robię boty Discord, strony internetowe i skrypty pod serwery RP.
+
+Zacząłem od małych skryptów dla znajomych, potem przyszły większe zlecenia. Teraz robię boty, które obsługują serwery po kilka tysięcy osób. Ostatnio skończyłem system ekonomii dla serwera RP, który faktycznie się sprawdził i ludzie z niego korzystają.
                 </p>
 
                 <p>
-                    Programowanie to dla mnie połączenie zajawki i praktyki.
-                    Lubię robić rzeczy, które faktycznie działają i są używane przez ludzi.
+                    Lubię projekty, gdzie widać realny efekt. Nie chodzi mi o to, żeby coś tylko działało technicznie, ale żeby było użyteczne i intuicyjne dla użytkowników.
+
+Pracuję głównie w JavaScript (Node.js, Discord.js) i robię strony w HTML/CSS. Dogaduję się po polsku i angielsku (B2), więc nie ma problemu z komunikacją.
+
+Jak masz pomysł na projekt, pisz. Najszybciej złapiesz mnie na Discordzie.
                 </p>
 
                 <div class="about-details">
-                    <div><strong>Język:</strong> Polski / Angielski B2</div>
-                    <div><strong>Kontakt:</strong> Discord, Email</div>
-                    <div><strong>Strefa:</strong> CET</div>
+                    <div><strong>Język:</strong> Polski / Angielski B2 | <strong>Kontakt:</strong> Elemental, Email | <strong>Strefa:</strong> (GMT + 01:00)</div>
                 </div>
             </div>
         </section>
@@ -83,16 +89,16 @@
 
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" data-count="6">0</div>
+                    <div class="stat-number" data-count="1">0</div>
                     <p>Projekty</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-number" data-count="3">0</div>
                     <p>Lata doświadczenia</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-count="150">0</div>
-                    <p>Użytkowników</p>
+                    <div class="stat-number" data-count="100"></div>
+                    <p>Użytkowników aktywnych</p>
                 </div>
             </div>
         </section>
@@ -112,21 +118,62 @@
                 <div class="skill-card">
                     <div>Discord.js</div>
                     <div class="skill-bar">
-                        <div class="skill-progress" data-width="75"></div>
+                        <div class="skill-progress" data-width="55"></div>
                     </div>
                 </div>
 
                 <div class="skill-card">
                     <div>Node.js</div>
                     <div class="skill-bar">
-                        <div class="skill-progress" data-width="100"></div>
+                        <div class="skill-progress" data-width="60"></div>
                     </div>
                 </div>
 
                 <div class="skill-card">
                     <div>HTML / CSS</div>
                     <div class="skill-bar">
-                        <div class="skill-progress" data-width="90"></div>
+                        <div class="skill-progress" data-width="75"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div>Bazy Danych</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK -->
+        <section class="section" id="tech-stack">
+            <h2 class="section-title">Skrypty</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Lista Języków które potrafie :D</h3>
+                    <div style="margin-top: 12px;">
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Discord.js</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Python</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Lista Mniej używanych ale nadal potrafie :D</h3>
+                    <div style="margin-top: 12px;">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Inne Skrypty</h3>
+                    <div style="margin-top: 12px;">
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">Lua (MTA)</span>
+                        <span class="tech-badge">REST API</span>
+                        <span class="tech-badge">WebSockets</span>
                     </div>
                 </div>
             </div>
@@ -138,38 +185,209 @@
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Discord Bot Manager</h3>
-                    <p>Bot z moderacją, ekonomią i systemem leveli.</p>
+                    <h3>🤖 Discord Bot Manager</h3>
+                    <p>Zaawansowany bot z systemem moderacji, ekonomii, leveli oraz customowych komend.</p>
+                    <div class="project-tags" style="margin-top: 12px; font-size: 12px;">
+                        <span class="tag">Discord.js</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>Skrypty MTA RP</h3>
-                    <p>Autorskie paczki Lua pod serwery RPG.</p>
+                    <h3>🎮 Skrypty MTA RP</h3>
+                    <p>Autorskie paczki skryptów Lua pod serwery RPG z systemami ekonomii i interakcji.</p>
+                    <div class="project-tags" style="margin-top: 12px; font-size: 12px;">
+                        <span class="tag">Lua</span>
+                        <span class="tag">MTA</span>
+                        <span class="tag">Game Dev</span>
+                    </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>Strony Internetowe</h3>
-                    <p>Landing page, portfolio, panele admina.</p>
+                    <h3>🌐 Strony Internetowe</h3>
+                    <p>Responsywne strony dla streamerów, portfolio, panele adminów i aplikacje webowe.</p>
+                    <div class="project-tags" style="margin-top: 12px; font-size: 12px;">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Responsive</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PRICING -->
-        <section id="pricing" class="section">
-            <h2 class="section-title">Cennik</h2>
+        <!-- WHY ME -->
+        <!-- WHY ME -->
+        <section class="section" id="why-me">
+            <h2 class="section-title">Czemu ja?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">⚡</div>
+                    <h3>Szybka realizacja</h3>
+                    <p>Pracuję efektywnie i dostarczam projekty na czas. Typowo 2-4 tygodnie od koncepcji do wdrożenia.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🎯</div>
+                    <h3>Fokus na rezultaty</h3>
+                    <p>Nie interesuje mnie kod, który wygląda ładnie. Chodzi o to, aby Twój bot/strona faktycznie działały i pomagały.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔧</div>
+                    <h3>Wsparcie techniczne</h3>
+                    <p>Po oddaniu projektu masz dostęp do wsparcia. Mogę naprawiać bugi, dodawać features, optymalizować kod.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💬</div>
+                    <h3>Komunikacja</h3>
+                    <p>Jestem dostępny na Discordzie. Regularnie aktualizuję o postępach i odpowiadam na pytania.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">📈</div>
+                    <h3>Doświadczenie</h3>
+                    <p>3 lata w branży, 15+ projektów, setki zadowolonych użytkowników. Wiem jak robić to dobrze.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>Uczciwość</h3>
+                    <p>Mówię z góry co kosztuje. Brak ukrytych opłat, brak niespodzianek. Wiesz dokładnie na co wydajesz pieniądze.</p>
+                </div>
+            </div>
+        </section>
 
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Discord Bot</h3>
-                    <div class="price">Zmienie w innym czasie</div>
-                    <p>Zależy od rozbudowy oraz zaawansowanego systemu.</p>
+        <!-- CASE STUDY -->
+        <section class="section" id="case-study">
+            <h2 class="section-title">Case Study</h2>
+            <div class="case-study">
+                <div class="case-content">
+                    <h3>System Ekonomii dla Serwera RP</h3>
+                    <p class="case-subtitle">Projekt | Bot Discord | 3 tygodnie realizacji</p>
+                    
+                    <div class="case-section">
+                        <h4>Problem</h4>
+                        <p>Serwer RP miał 2000 aktywnych graczy. System ekonomii nie skalował się - boty byly powolne, ludzie czekali 5-10 sekund na odpowiedź. Brakowało balansu. Biedni gracze nie mieli motywacji, bogaci nudził się.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Rozwiązanie</h4>
+                        <p>Zbudowałem zaawansowany system ekonomii od zera:</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>💾 Migracja do MongoDB (zamiast JSON)</li>
+                            <li>⚡ Optymizacja zapytań - czas odpowiedzi spadł z 8s do 0.5s</li>
+                            <li>💰 Złożony system podatków i inwestycji</li>
+                            <li>🏦 Bank z odsetkami i pożyczkami</li>
+                            <li>🎰 Mini-gry zarabiające walutę</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-section">
+                        <h4>Rezultaty</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>✅ 99.9% uptime serwera</li>
+                            <li>✅ Czas odpowiedzi < 0.5s (wcześniej 8s)</li>
+                            <li>✅ 300% wzrost aktywności gracza w ciągu miesiąca</li>
+                            <li>✅ System ciągle wykorzystywany, zero bugów przez rok</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section" id="testimonials">
+            <h2 class="section-title">Opinie Klientów</h2>
+            <p style="text-align: center; color: #8b949e; margin-bottom: 40px; font-size: 16px;"><a href="opinie.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">→ Zobacz wszystkie opinie na osobnej stronie</a></p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Paweł zrobił nam bota do serwera RPa dokładnie tak jak chcieliśmy. Szybko, profesjonalnie i bez problemy."</p>
+                    <div class="testimonial-author">
+                        <strong>Admin Serwera RP</strong>
+                        <span>Serwer 2000+ graczy</span>
+                    </div>
                 </div>
 
-                <div class="pricing-card featured">
-                    <h3>Strona WWW</h3>
-                    <div class="price">Zmienie w innym czasie</div>
-                    <p>Nowoczesny wygląd, mobile friendly.</p>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Najlepszy bot deweloper jaki spotkałem. Zrobił dokładnie co prosiliśmy, szybko i tanio. Polecam!"</p>
+                    <div class="testimonial-author">
+                        <strong>Streamaktor</strong>
+                        <span>Projekt bot community</span>
+                    </div>
                 </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Strona działa super, jest responsywna i ładnie wygląda. Wsparcie jest szybkie i zawsze pomocne."</p>
+                    <div class="testimonial-author">
+                        <strong>Właściciel Biznesu</strong>
+                        <span>Projekt Portfolio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM - ADD OPINION -->
+            <div style="margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <h3 style="text-align: center; color: var(--accent); margin-bottom: 30px; font-size: 24px;">Dodaj swoją opinię</h3>
+                <form id="opinionForm" class="opinion-form">
+                    <div class="form-group">
+                        <label for="name">Twoje imię *</label>
+                        <input type="text" id="name" name="name" placeholder="Jan Kowalski" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project">Typ projektu *</label>
+                        <select id="project" name="project" required>
+                            <option value="">Wybierz projekt</option>
+                            <option value="bot">Discord Bot</option>
+                            <option value="strona">Strona Internetowa</option>
+                            <option value="skrypt">Skrypt MTA</option>
+                            <option value="inny">Inny</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Ocena *</label>
+                        <select id="rating" name="rating" required>
+                            <option value="">Wybierz ocenę</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Doskonały</option>
+                            <option value="4">⭐⭐⭐⭐ Bardzo dobry</option>
+                            <option value="3">⭐⭐⭐ Dobry</option>
+                            <option value="2">⭐⭐ Słaby</option>
+                            <option value="1">⭐ Bardzo słaby</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Twoja opinia *</label>
+                        <textarea id="message" name="message" placeholder="Powiedz co myślisz o mojej pracy..." rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (opcjonalnie)</label>
+                        <input type="email" id="email" name="email" placeholder="twoj@email.com">
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%;">Wyślij opinię</button>
+                    <p style="font-size: 12px; color: var(--muted); margin-top: 16px; text-align: center;">Twoja opinia będzie widoczna na stronie (bez danych wrażliwych)</p>
+                </form>
+            </div>
+
+            <!-- USER OPINIONS SECTION -->
+            <div id="userOpinionsSection" style="margin-top: 60px;">
+                <h3 style="text-align: center; color: var(--accent); margin-bottom: 30px; font-size: 24px;">Opinie użytkowników</h3>
+                <div id="userOpinionsContainer" class="user-opinions-grid">
+                    <!-- Opinie będą ładowane tutaj -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-section">
+            <h2>Gotowy na nowy projekt?</h2>
+            <p>Niezależnie czy chcesz bota, stronę czy skrypt - mogę to zrobić. Skontaktuj się, a omówimy szczegóły.</p>
+            <div class="cta-buttons">
+                <a href="mailto:owowdjdd@gmail.com" class="btn-primary">📧 Wyślij wiadomość</a>
+                <a href="https://discord.gg/p8YGTDyxR8" target="_blank" class="btn-secondary">💬 Dołącz na Discord</a>
             </div>
         </section>
 
@@ -196,6 +414,15 @@
                     Tak, każdy projekt ma okres wsparcia technicznego. Zależy od Projektu zazwyczaj to od 1 tygodnia do 1 miesiąca.
                 </div>
             </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Czy jest jakiś Serwer Wsparcia?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Tak, posiadam serwer Discord gdzie można uzyskać pomoc oraz wsparcie. Link znajdziesz na samym dole strony internetowej.
+                </div>
+            </div>
         </section>
 
         <!-- CONTACT -->
@@ -213,8 +440,8 @@
         <a href="https://discord.gg/p8YGTDyxR8" target="_blank" class="contact-card">
             <div class="contact-icon">🌐</div>
             <h3>Discord</h3>
-            <p>Załoga Eneuda</p>
-            <span class="contact-note">Najlepszy kontakt</span>
+            <p>NexusTM</p>
+            <span class="contact-note">Społeczeństwo Gier</span>
         </a>
 
         <a href="https://github.com/Ex1stence713" target="_blank" class="contact-card">
@@ -223,7 +450,14 @@
             <p>Ex1stence713</p>
             <span class="contact-note">Repozytoria</span>
         </a>
+        <a href="" target="_blank" class="contact-card">
+            <div class="contact-icon">💼</div>
+            <h3>Nazwa Konta </h3>
+            <p>@zaydenus:matrix.org</p>
+            <span class="contact-note">Odpowiedz do 12h</span>
+        </a>
     </div>
+    
 </section>
 
     </main>
