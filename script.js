@@ -232,7 +232,7 @@ function displayUserOpinions() {
     opinionsContainer.innerHTML = opinions.map((opinion, index) => {
         const stars = '⭐'.repeat(opinion.rating) + '☆'.repeat(5 - opinion.rating);
         return `
-            <div class="opinion-card" style="animation-delay: ${index * 0.1}s;">
+            <div class="user-opinion-card" style="animation-delay: ${index * 0.1}s;">
                 <div style="display: flex; justify-content: space-between; align-items: start;">
                     <div style="flex: 1;">
                         <div class="stars">${stars}</div>
@@ -247,6 +247,11 @@ function displayUserOpinions() {
             </div>
         `;
     }).join('');
+    
+    // Uruchom carousel opinii
+    setTimeout(() => {
+        startOpinionsCarousel();
+    }, 100);
 }
 
 // Usuń opinię
@@ -257,9 +262,83 @@ function deleteOpinion(id) {
     displayUserOpinions();
 }
 
+// Carousel rotation dla opinii
+let rotationIndex = 0;
+let rotationInterval = null;
+
+function rotateTestimonials() {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    if (testimonials.length <= 1) return;
+
+    const container = document.querySelector('.testimonials-grid');
+    if (!container) return;
+
+    // Dodaj animację wychodzenia
+    testimonials[rotationIndex].style.opacity = '0.3';
+    testimonials[rotationIndex].style.transform = 'scale(0.95)';
+
+    rotationIndex = (rotationIndex + 1) % testimonials.length;
+
+    // Następna opinia
+    setTimeout(() => {
+        testimonials.forEach((card, i) => {
+            if (i === rotationIndex) {
+                card.style.animation = 'none';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 10);
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+                card.style.order = '-1';
+            } else {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+                card.style.order = '';
+            }
+        });
+    }, 300);
+}
+
+// Opinie użytkowników - carousel
+function startOpinionsCarousel() {
+    const container = document.getElementById('userOpinionsContainer');
+    if (!container) return;
+
+    // Rotuj co 5 sekund
+    let currentIndex = 0;
+    
+    setInterval(() => {
+        const cards = container.querySelectorAll('.user-opinion-card');
+        if (cards.length <= 1) return;
+
+        // Dodaj animację wychodzenia dla bieżącej karty
+        cards.forEach((card, i) => {
+            card.style.animation = 'none';
+        });
+
+        cards[currentIndex].style.animation = 'slideCarousel 0.6s ease-out reverse';
+        
+        currentIndex = (currentIndex + 1) % cards.length;
+        
+        setTimeout(() => {
+            cards.forEach((card, i) => {
+                if (i === currentIndex) {
+                    card.style.order = '-1';
+                    card.style.animation = 'slideCarousel 0.6s ease-out both';
+                } else {
+                    card.style.order = '';
+                }
+            });
+        }, 300);
+    }, 6000);
+}
+
 // Załaduj opinie na starcie
 window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(displayUserOpinions, 100);
+    setTimeout(() => {
+        displayUserOpinions();
+        startOpinionsCarousel();
+    }, 100);
 });
 
 // Również załaduj od razu (na wypadek gdyby DOM był już gotowy)

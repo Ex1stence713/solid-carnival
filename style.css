@@ -43,6 +43,28 @@
     }
 }
 
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideCarousel {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -974,33 +996,88 @@ nav {
 }
 
 .user-opinion-card {
-    background: var(--card);
-    padding: 24px;
+    background: linear-gradient(135deg, var(--card) 0%, rgba(28, 33, 40, 0.9) 100%);
+    padding: 28px;
     border-radius: var(--radius);
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    animation: fadeInUp 0.8s ease-out both;
-    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 212, 255, 0.15);
+    animation: slideCarousel 0.6s ease-out both;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.user-opinion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.user-opinion-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .user-opinion-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--accent);
-    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.15);
+    box-shadow: 0 16px 40px rgba(0, 212, 255, 0.25);
+}
+
+.user-opinion-card:hover::before {
+    opacity: 1;
+}
+
+.user-opinion-card:hover::after {
+    opacity: 1;
 }
 
 .user-opinion-card .stars {
-    font-size: 16px;
-    margin-bottom: 12px;
+    font-size: 18px;
+    margin-bottom: 14px;
     display: inline-block;
+    letter-spacing: 2px;
 }
 
 .user-opinion-card p {
     color: var(--text);
-    line-height: 1.6;
-    margin: 12px 0;
+    line-height: 1.8;
+    margin: 14px 0;
     font-style: italic;
     word-wrap: break-word;
+}
+
+.opinion-author {
+    display: block;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 16px;
+}
+
+.opinion-author strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.opinion-author small {
+    color: var(--muted);
+    font-size: 12px;
+    display: block;
 }
 
 .btn-delete-opinion {
@@ -1083,15 +1160,31 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
+    position: relative;
 }
 
 .testimonial-card {
-    background: var(--card);
+    background: linear-gradient(135deg, var(--card) 0%, rgba(28, 33, 40, 0.8) 100%);
     padding: 30px;
     border-radius: var(--radius);
-    border: 1px solid rgba(0, 212, 255, 0.1);
+    border: 2px solid rgba(0, 212, 255, 0.2);
     animation: fadeInUp 0.8s ease-out both;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
@@ -1099,9 +1192,13 @@ nav {
 .testimonial-card:nth-child(3) { animation-delay: 0.4s; }
 
 .testimonial-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     border-color: var(--accent);
-    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.15);
+    box-shadow: 0 16px 40px rgba(0, 212, 255, 0.2);
+}
+
+.testimonial-card:hover::before {
+    opacity: 1;
 }
 
 .stars {
