@@ -243,7 +243,7 @@ function displayUserOpinions() {
                             <small>${opinion.project} • ${opinion.date}</small>
                         </div>
                     </div>
-                    <button class="btn-delete-opinion" onclick="deleteOpinion(${opinion.id})" title="Usuń opinię" style="background: none; border: none; color: var(--accent); cursor: pointer; font-size: 18px; padding: 0;">✕</button>
+                    <button class="btn-delete-opinion" onclick="deleteOpinion(${opinion.id})" title="🔐 Hasło wymagane" style="background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; padding: 0; opacity: 0.4;">🔒</button>
                 </div>
             </div>
         `;
@@ -255,11 +255,21 @@ function displayUserOpinions() {
     }, 100);
 }
 
-// Usuń opinię
+// Usuń opinię - tylko z hasłem
+const ADMIN_PASSWORD = "admin123"; // Zmień na swoje hasło!
 function deleteOpinion(id) {
+    const password = prompt("🔐 Wpisz hasło administratora, aby usunąć opinię:");
+    
+    if (password === null) return; // Anulowano
+    if (password !== ADMIN_PASSWORD) {
+        alert("❌ Nieprawidłowe hasło!");
+        return;
+    }
+    
     let opinions = JSON.parse(localStorage.getItem('userOpinions')) || [];
     opinions = opinions.filter(op => op.id !== id);
     localStorage.setItem('userOpinions', JSON.stringify(opinions));
+    alert("✅ Opinia usunięta!");
     displayUserOpinions();
 }
 
