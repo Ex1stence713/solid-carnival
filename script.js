@@ -355,16 +355,16 @@ if (!localStorage.getItem('userOpinions') || JSON.parse(localStorage.getItem('us
             name: "Jan Kowalski",
             project: "Discord Bot",
             rating: 5,
-            message: "Paweł zrobił bota dokładnie tak jak chcieliśmy. Szybko, profesjonalnie i bez problemy.",
+            message: ".",
             email: "jan@example.com",
             date: "15.01.2026",
             id: Date.now()
         },
         {
-            name: "Maria Lewandowska",
-            project: "Strona internetowa",
+            name: "NexusTM",
+            project: "Discord Bot",
             rating: 5,
-            message: "Strona działa super, jest responsywna i ładnie wygląda. Wsparcie jest szybkie i zawsze pomocne.",
+            message: "Paweł zrobił bota dokładnie tak jak chcieliśmy. Szybko, profesjonalnie i bez problemów. Polecam!",
             email: "maria@example.com",
             date: "14.01.2026",
             id: Date.now() - 1
