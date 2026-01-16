@@ -230,7 +230,8 @@ function displayUserOpinions() {
     
     console.log('✅ Renderuję', opinions.length, 'opinii');
     opinionsContainer.innerHTML = opinions.map((opinion, index) => {
-        const stars = '⭐'.repeat(opinion.rating) + '☆'.repeat(5 - opinion.rating);
+        const rating = parseInt(opinion.rating) || 0;
+        const stars = '⭐'.repeat(rating) + '☆'.repeat(5 - rating);
         return `
             <div class="user-opinion-card" style="animation-delay: ${index * 0.1}s;">
                 <div style="display: flex; justify-content: space-between; align-items: start;">
