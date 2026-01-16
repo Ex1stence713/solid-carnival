@@ -353,9 +353,9 @@ if (!localStorage.getItem('userOpinions') || JSON.parse(localStorage.getItem('us
     const testOpinions = [
         {
             name: "Jan Kowalski",
-            project: "Discord Bot",
+            project: "Strona Internetowa",
             rating: 5,
-            message: ".",
+            message: "Strona Internetowa została wykonana perfekcyjnie! Paweł jest bardzo profesjonalny i terminowy.",
             email: "jan@example.com",
             date: "15.01.2026",
             id: Date.now()
