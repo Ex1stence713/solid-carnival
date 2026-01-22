@@ -157,11 +157,13 @@ document.querySelectorAll('.section').forEach(section => {
     section.style.opacity = '0.95';
     observer.observe(section);
 });
-// Chrome extension message
-chrome.runtime.sendMessage({type: "notify"}, (response) => {
-    if (chrome.runtime.lastError) {
-        console.warn("Błąd powiadomienia:", chrome.runtime.lastError.message);
-        return;
-    }
-    console.log("Odpowiedź:", response);
-});
+// czy chrome.runtime istnieje
+if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+    chrome.runtime.sendMessage({type: "notify"}, (response) => {
+        if (chrome.runtime.lastError) {
+            console.warn("Błąd powiadomienia:", chrome.runtime.lastError.message);
+            return;
+        }
+        console.log("Odpowiedź:", response);
+    });
+}
