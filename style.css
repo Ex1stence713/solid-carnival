@@ -690,6 +690,7 @@ nav {
 
 .light-theme .nav-links a {
     color: var(--text);
+    text-decoration: none;
 }
 
 .light-theme .theme-toggle,
