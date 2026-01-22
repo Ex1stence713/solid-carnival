@@ -1333,3 +1333,21 @@ nav {
 .mini-logo a:hover {
   opacity: 0.7;
 }
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-with-avatar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-with-avatar img {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
