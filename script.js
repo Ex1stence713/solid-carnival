@@ -31,12 +31,12 @@ function toggleMobileMenu() {
 }
 
 // Close menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        const menu = document.getElementById("navLinks");
-        menu.style.display = "none";
-    });
-});
+// document.querySelectorAll('.nav-links a').forEach(link => {
+//     link.addEventListener('click', () => {
+//         const menu = document.getElementById("navLinks");
+//         menu.style.display = "none";
+//     });
+// });
 
 // Skills animation
 const skillObserver = new IntersectionObserver(entries => {
