@@ -1315,9 +1315,9 @@ nav {
     }
 }
 .mini-logo {
-  position: fixed;
-  top: 24px;
-  right: 32px;
+  /* position: fixed; */
+  /* top: 24px; */
+  /* right: 32px; */
   z-index: 9999;
 }
 
