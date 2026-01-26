@@ -282,10 +282,10 @@ updateData();
 updateClock();
 
 const audio = document.getElementById('myAudio');
-{}
   function showAbout() {
     document.getElementById("home").style.display = "none";
     document.getElementById("about").style.display = "block";
+        document.getElementById("image-gallery").style.display = "block";
     document.querySelector(".btn-about").style.display = "none";
     document.querySelector(".btn-back").style.display = "inline-block";
   }
@@ -293,6 +293,60 @@ const audio = document.getElementById('myAudio');
   function showHome() {
     document.getElementById("about").style.display = "none";
     document.getElementById("home").style.display = "block";
+    document.getElementById("image-gallery").style.display = "block";
     document.querySelector(".btn-back").style.display = "none";
     document.querySelector(".btn-about").style.display = "inline-block";
   }
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && ['c','u','s','x','a'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+    }
+});
+// Lista zdjęć (w folderze images/)
+const images = [
+  "images/img1.jpg",
+  "images/img2.jpg",
+  "images/img3.jpg",
+  "images/img4.jpg",
+  "images/img5.jpg",
+  "images/img6.jpg"
+];
+
+const galleryGrid = document.getElementById("galleryGrid");
+
+images.forEach((src, index) => {
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = `Zdjęcie ${index + 1}`;
+  img.style.animation = `fadeUp 0.6s ease forwards`;
+  img.style.animationDelay = `${index * 0.1}s`;
+  galleryGrid.appendChild(img);
+});
+
+// Keyframes dodajemy dynamicznie przez JS (opcjonalnie)
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}`;
+document.head.appendChild(style);
+img.style.animation = `fadeUp 0.6s ease forwards`;
+img.style.animationDelay = `${index * 0.08}s`;
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+// Dodaj kliknięcie do każdego zdjęcia galerii
+document.querySelectorAll('.gallery-grid img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src; // pokazujemy to samo zdjęcie
+  });
+});
+
+// Funkcja zamykania
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  lightboxImg.src = '';
+}
