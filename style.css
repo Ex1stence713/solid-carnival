@@ -110,6 +110,9 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .background {
@@ -442,4 +445,25 @@ canvas {
     gap: 20px;
     border: 1px solid rgba(138, 43, 226, 0.3);
     backdrop-filter: blur(10px);
+}
+.btn-about,
+.btn-back {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background: #6c63ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 9999;
+}
+
+.btn-back {
+  left: 20px;
+  right: auto;
+  background: transparent;
+  border: 2px solid #6c63ff;
+  color: #6c63ff;
 }
