@@ -1,169 +1,284 @@
-// Progress bar
-window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    document.getElementById("readingProgress").style.width = (scrollTop / height) * 100 + "%";
+// // ======================
+// // Aktualizacja czasu
+// // ======================
+// function updateTime() {
+//     const now = new Date();
+//     const hours = String(now.getHours()).padStart(2, '0');
+//     const minutes = String(now.getMinutes()).padStart(2, '0');
+//     const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+//     document.querySelector('.time').textContent = `${hours}:${minutes}:${seconds}`;
+// }
+// updateTime();
+// setInterval(updateTime, 1000);
 
-    const scrollBtn = document.getElementById("scrollTop");
-    scrollBtn.style.display = scrollTop > 400 ? "block" : "none";
-});
+// // ======================
+// // Obsługa przycisku mute
+// // ======================
+// const muteBtn = document.querySelector('.mute-btn');
+// let isMuted = false;
 
-// Scroll top
-document.getElementById("scrollTop").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+// muteBtn.addEventListener('click', () => {
+//     isMuted = !isMuted;
+    
+//     if (isMuted) {
+//         muteBtn.innerHTML = `
+//             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+//                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+//                 <line x1="23" y1="9" x2="17" y2="15"></line>
+//                 <line x1="17" y1="9" x2="23" y2="15"></line>
+//             </svg>
+//         `;
+//     } else {
+//         muteBtn.innerHTML = `
+//             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+//                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+//                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+//                 <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+//             </svg>
+//         `;
+//     }
+// });
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
+// const enterScreen = document.getElementById('enter-screen');
+// const enterBtn = document.getElementById('enter-btn');
 
-// Mobile menu
-function toggleMobileMenu() {
-    const menu = document.getElementById("navLinks");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-}
+// function enterWebsite() {
+//     enterScreen.classList.add('hidden');
+//     const links = document.querySelectorAll('.link-card');
+//     links.forEach((link, index) => {
+//         link.style.opacity = '0';
+//         link.style.transform = 'translateY(20px)';
+        
+//         setTimeout(() => {
+//             link.style.transition = 'all 0.5s ease';
+//             link.style.opacity = '1';
+//             link.style.transform = 'translateY(0)';
+//         }, (index + 1) * 100);
+//     });
+// }
+// document.addEventListener('DOMContentLoaded', () => {
+//     const enterScreen = document.getElementById('enter-screen');
 
-// Close menu when clicking on a link
-// document.querySelectorAll('.nav-links a').forEach(link => {
-//     link.addEventListener('click', () => {
-//         const menu = document.getElementById("navLinks");
-//         menu.style.display = "none";
+//     // kliknięcie w cały ekran
+//     enterScreen.addEventListener('click', enterWebsite);
+
+//     // wciśnięcie Enter
+//     document.addEventListener('keydown', (e) => {
+//         if(e.key === 'Enter') {
+//             enterWebsite();
+//         }
 //     });
 // });
 
-// Skills animation
-const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const bar = entry.target;
-            bar.style.width = bar.dataset.width + "%";
-            skillObserver.unobserve(bar);
-        }
-    });
-}, { threshold: 0.5 });
+// // ======================
+// // Poprawiona wersja animacji cząsteczek neonowych
+// // ======================
+// const canvas = document.createElement('canvas');
+// canvas.id = 'particles';
+// document.body.appendChild(canvas);
+// const ctx = canvas.getContext('2d');
 
-document.querySelectorAll(".skill-progress").forEach(bar => {
-    skillObserver.observe(bar);
-});
+// const enterCanvas = document.getElementById('enter-canvas');
+// const enterCtx = enterCanvas.getContext('2d');
 
-// Stats counter
-const statObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
+// let w = enterCanvas.width = window.innerWidth;
+// let h = enterCanvas.height = window.innerHeight;
+
+// let width = canvas.width = window.innerWidth;
+// let height = canvas.height = window.innerHeight;
+
+// window.addEventListener('resize', () => {
+//     width = canvas.width = window.innerWidth;
+//     height = canvas.height = window.innerHeight;
+//     w = enterCanvas.width = window.innerWidth;
+//     h = enterCanvas.height = window.innerHeight;
+// });
+
+// const particles = [], particlesEnter = [];
+// const numParticles = 80, numParticlesEnter = 40;
+
+// // zwykłe cząsteczki
+// for(let i = 0; i < numParticles; i++) {
+//     particles.push({
+//         x: Math.random() * width,
+//         y: Math.random() * height,
+//         radius: Math.random() * 3 + 1,
+//         speedX: (Math.random() - 0.5) * 0.5,
+//         speedY: (Math.random() - 0.5) * 0.5,
+//         color: `hsl(${Math.random()*360}, 100%, 50%)`,
+//         isMouse: false
+//     });
+// }
+// for(let i = 0; i < numParticlesEnter; i++) {
+//     particlesEnter.push({
+//         x: Math.random() * width,
+//         y: Math.random() * height,
+//         radius: Math.random() * 3 + 1,
+//         speedX: (Math.random() - 0.5) * 0.5,
+//         speedY: (Math.random() - 0.5) * 0.5,
+//         color: `hsl(${Math.random()*360}, 100%, 50%)`,
+//         isMouse: false
+//     });
+// }
+
+// // dodajemy punkt myszy
+// const mouseIndex = particles.push({ x: -100, y: -100, radius: 0, isMouse: true });
+
+// window.addEventListener('mousemove', (e) => {
+//     particles[mouseIndex] = { x: e.clientX, y: e.clientY, radius: 0, isMouse: true };
+// });
+
+// // animacja
+// function animateParticles() {
+//     ctx.clearRect(0, 0, width, height);
+//     enterCtx.clearRect(0, 0, width, height);
+
+//     for(let p of particles){
+//         if(!p.isMouse){
+//             p.x += p.speedX;
+//             p.y += p.speedY;
+
+//             if(p.x < 0 || p.x > width) p.speedX *= -1;
+//             if(p.y < 0 || p.y > height) p.speedY *= -1;
             
-            // Skip if already animated
-            if (el.dataset.animated === 'true') return;
-            el.dataset.animated = 'true';
-            
-            let count = 0;
-            const target = +el.dataset.count;
-            const increment = target > 100 ? Math.ceil(target / 30) : 1;
-            
-            const interval = setInterval(() => {
-                count = Math.min(count + increment, target);
-                el.textContent = count.toLocaleString('pl-PL');
-                if (count >= target) clearInterval(interval);
-            }, 30);
-            
-            statObserver.unobserve(el);
-        }
-    });
-}, { threshold: 0.6 });
+//             ctx.beginPath();
+//             ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+//             ctx.fillStyle = p.color || '#fff';
+//             ctx.shadowColor = p.color || '#fff';
+//             ctx.shadowBlur = 8;
+//             ctx.fill();
+//         }
+//     }
+//     for(let p of particlesEnter){
+//             p.x += p.speedX;
+//             p.y += p.speedY;
 
-document.querySelectorAll(".stat-number").forEach(stat => {
-    statObserver.observe(stat);
-});
+//             if(p.x < 0 || p.x > width) p.speedX *= -1;
+//             if(p.y < 0 || p.y > height) p.speedY *= -1;
+            
+//             enterCtx.beginPath();
+//             enterCtx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+//             enterCtx.fillStyle = p.color || '#fff';
+//             enterCtx.shadowColor = p.color || '#fff';
+//             enterCtx.shadowBlur = 8;
+//             enterCtx.fill();
+//     }
 
-// FAQ
-document.querySelectorAll(".faq-question").forEach(btn => {
-    btn.addEventListener("click", function() {
-        const item = this.closest('.faq-item');
-        const answer = this.nextElementSibling;
-        const icon = this.querySelector(".faq-icon");
-        const isOpen = answer.style.display === "block";
-        
-        // Close all other FAQ items
-        document.querySelectorAll('.faq-item').forEach(faqItem => {
-            if (faqItem !== item) {
-                faqItem.querySelector('.faq-answer').style.display = 'none';
-                faqItem.querySelector('.faq-icon').textContent = '+';
-            }
-        });
-        
-        // Toggle current item
-        answer.style.display = isOpen ? "none" : "block";
-        icon.textContent = isOpen ? "+" : "−";
-    });
-});
+//     // linie między punktami
+//     for(let i =0; i<particles.length; i++){
+//         for(let j=i+1; j<particles.length; j++){
+//             const dx = particles[i].x - particles[j].x;
+//             const dy = particles[i].y - particles[j].y;
+//             const dist = Math.sqrt(dx*dx + dy*dy);
+//             if(dist < 120){
+//                 ctx.beginPath();
+//                 ctx.moveTo(particles[i].x, particles[i].y);
+//                 ctx.lineTo(particles[j].x, particles[j].y);
+//                 ctx.strokeStyle = `rgba(138,43,226, ${1 - dist/120})`;
+//                 ctx.lineWidth = 0.5;
+//                 ctx.stroke();
+//             }
+//         }
+//     }
 
-// Lightbox
-function openLightbox(img) {
-    document.getElementById("lightboxImg").src = img.src;
-    document.getElementById("lightbox").style.display = "flex";
+//     requestAnimationFrame(animateParticles);
+// }
+
+// animateParticles();
+
+// async function getDataFromLoomCat() {
+//     const request = await fetch("https://loom.cat/api/v1/users/1087829498810073269")
+//     const body = await request.json().catch(e => {
+//         console.warn(e)
+//         return null
+//     }) 
+
+//     if (!body || body.error) {
+//         //logika błędu
+//         return
+//     }
+
+//     const statustext = document.getElementById("dis-status")
+//     statustext.innerText = { dnd: "Nie przeszkadzać", online: "Obecny", idle: "Zaraz wracam", offline: "Niewidoczny" }[body.status]
+// }
+
+const DISCORD_ID = "1087829498810073269";
+const LFM_USER = "_nighthunter_.";
+const LFM_API_KEY = "0d22a6285362338637e9fe9eb97a1fd0";
+const music = document.getElementById('bg-music');
+let vol = 0.2
+
+function launch() {
+    document.getElementById('overlay').style.display = 'none';
+    music.volume = 0.2; music.play();
+    document.getElementById('bg-video').play();
 }
 
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+function toggleMute() {
+    music.muted = !music.muted;
+    document.getElementById('mute-icon').className = `fa ${music.muted ? "fa-volume-mute" : "fa-volume-up"}`
+    document.getElementById('volmeeter').value = music.muted ? '0' : Math.max(vol * 100, 1).toString()
 }
 
-// Theme toggle function
-function applyTheme(theme) {
-    const body = document.body;
-    if (theme === 'light') {
-        body.classList.add('light-theme');
-    } else {
-        body.classList.remove('light-theme');
+function vc() {
+    const ovolbool = vol > 0
+    const volbool = Number(document.getElementById('volmeeter').value) > 0
+    if (!music.muted || volbool) {
+        music.volume = vol = Number(document.getElementById('volmeeter').value) / 100
+        if (volbool != ovolbool || music.muted) {
+            toggleMute()
+        }
     }
-    localStorage.setItem('theme', theme);
+    setTimeout(vc, 100)
+}
+vc()
+
+function copy() {
+    navigator.clipboard.writeText('._nighthunter_.');
+    const n = document.getElementById('notification');
+    n.classList.add('show');
+    setTimeout(() => n.classList.remove('show'), 2000);
 }
 
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-
-const savedTheme = localStorage.getItem('theme') || 'dark';
-applyTheme(savedTheme);
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(newTheme);
-    });
+function updateClock() {
+    document.getElementById('clock').innerText = new Date().toLocaleTimeString('pl-PL', { hour12: false });
 }
 
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+async function updateData() {
+    console.log("Ładowanie profilu")
+    const r = await fetch(`https://loom.cat/api/v1/users/${DISCORD_ID}`);
+    console.log("Ładowanie zakończone!")
+    try {
+        const data = await r.json();
+        document.getElementById('av').src = data.metadata.avatar_url;
+        const statusNames = { online: 'Dostępny', dnd: 'Nie przeszkadzać', idle: 'Zaraz wracam', offline: 'Niewidoczny' };
+        const statusColors = { online: '#43b581', dnd: '#f04747', idle: '#faa61a', offline: '#747f8d' };
+        document.getElementById('dis-status').innerText = statusNames[data.status] || 'Offline';
+        document.getElementById('status-dot').style.background = statusColors[data.status] || '#747f8d';
+    } catch(e) {
+        console.warn(e)
+    }
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0.95';
-    observer.observe(section);
-});
-// czy chrome.runtime istnieje
-if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
-    chrome.runtime.sendMessage({type: "notify"}, (response) => {
-        if (chrome.runtime.lastError) {
-            console.warn("Błąd powiadomienia:", chrome.runtime.lastError.message);
-            return;
-        }
-        console.log("Odpowiedź:", response);
-    });
+    // try {
+    //     const r = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LFM_USER}&api_key=${LFM_API_KEY}&format=json&limit=1`);
+    //     const data = await r.json();
+    //     const track = data.recenttracks.track[0];
+    //     const isPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
+    //     const tile = document.getElementById('lfm-tile');
+    //     if(isPlaying) {
+    //         tile.style.display = 'flex';
+    //         document.getElementById('lfm-track').innerText = `${track.name} - ${track.artist['#text']}`;
+    //         document.getElementById('lfm-img').src = track.image[2]['#text'];
+    //     } else {
+    //         tile.style.display = 'none';
+    //     }
+    // } catch(e) {}
 }
+
+setInterval(updateClock, 1000);
+setInterval(updateData, 10000);
+updateData();
+updateClock();
+
+const audio = document.getElementById('myAudio');

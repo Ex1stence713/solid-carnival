@@ -3,270 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Zayden</title>
-    <meta name="description" content="Paweł Zayden Gajewski ">
-    <meta name="theme-color" content="#00d4ff">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Ex1stence713/solid-carnival/main/profilowe.jpg">
+    <title>Zayden | Bio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="reading-progress" id="readingProgress"></div>
+<div class="crt-overlay"></div>
+<div id="notification">Skopiowano</div>
 
-    <!-- NAV -->
-    <nav>
-        <div class="logo">Zaydenus</div>
+<div id="overlay" onclick="launch()">
+    <div class="start-btn">START</div>
+</div>
 
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Start</a></li>
-            <li><a href="#about">O mnie</a></li>
-            <li><a href="#skills" class="nav-avatar">Umiejętności</a></li>
-            <li><div class="mini-logo">
-                <a href="/"><img src="profilowe.jpg" alt="Logo" width="30"></a>
-            </div></li>
-        </ul>
-    </nav>
-
-    <main class="container">
-
-        <!-- HERO -->
-        <section id="home" class="hero">
-            <img
-                src="https://raw.githubusercontent.com/Ex1stence713/solid-carnival/main/pobrane.jpg"
-                alt="Zdjęcie profilowe Pawła Zaydena Gajewskiego"
-                class="hero-img"
-                width="180"
-                height="180"
-            >
-
-            <h1>Paweł Zayden Gajewski</h1>
-            <p class="hero-subtitle">Programista • Web • Discord Owner</p>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="section">
-            <h2 class="section-title">O mnie</h2>
-
-            <div class="about-content">
-                <p>
-Cześć, jestem Paweł. Mam 19 lat i robię boty Discord, strony internetowe i skrypty pod serwery RP.
-
-Zacząłem od małych skryptów dla znajomych, potem przyszły większe zlecenia. Teraz robię boty, które obsługują serwery po kilka tysięcy osób. Ostatnio skończyłem system ekonomii dla serwera RP, który faktycznie się sprawdził i ludzie z niego korzystają.
-                </p>
-
-                <p>
-                    Lubię projekty, gdzie widać realny efekt. Nie chodzi mi o to, żeby coś tylko działało technicznie, ale żeby było użyteczne i intuicyjne dla użytkowników.
-
-Pracuję głównie w JavaScript (Node.js, Discord.js) i robię strony w HTML/CSS. Dogaduję się po polsku i angielsku (B2), więc nie ma problemu z komunikacją.
-
-Jak masz pomysł na projekt, pisz. Najszybciej złapiesz mnie na Discordzie.
-                </p>
-
-                <div class="about-details">
-                    <div><strong>Język:</strong> Polski / Angielski B2 | <strong>Kontakt:</strong> Elemental, Email | <strong>Strefa:</strong> (GMT + 01:00)</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- STATS -->
-        <section class="section">
-            <h2 class="section-title">Statystyki</h2>
-            <div class="stats-grid">
-                <div class="stat-card" tabindex="0" aria-label="Projekty">
-                    <div class="stat-number" data-count="2">0</div>
-                    <p>Projekty</p>
-                </div>
-                <div class="stat-card" tabindex="0" aria-label="Lata doświadczenia">
-                    <div class="stat-number" data-count="4">0</div>
-                    <p>Lata doświadczenia</p>
-                </div>
-                <div class="stat-card" tabindex="0" aria-label="Użytkownicy aktywni">
-                    <div class="stat-number" data-count="160">0</div>
-                    <p>Łącznie Użytkowników aktywnych</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="section">
-            <h2 class="section-title">Umiejętności</h2>
-            <div class="skills-grid">
-         <div class="skill-card" tabindex="0" aria-label="Discord.js">
-                    <div>Discord.js</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="68"></div>
-                    </div>
-                </div>
-                <div class="skill-card" tabindex="0" aria-label="Node.js">
-                    <div>Node.js</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="70"></div>
-                    </div>
-                </div>
-                <div class="skill-card" tabindex="0" aria-label="HTML / CSS">
-                    <div>HTML / CSS</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="45"></div>
-                    </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="section">
-            <h2 class="section-title">Projekty</h2>
-            <div class="projects-grid">
-                <div class="project-card" tabindex="0" aria-label="Discord Bot Manager">
-                    <h3>🤖 Discord Bot Manager</h3>
-                    <p>Zaawansowany bot z systemem moderacji, ekonomii, leveli oraz customowych komend.</p>
-                    <a href="https://www.mediafire.com/folder/ht7nqddcaatvu/nkw" target="_blank" style="color: rgb(245, 245, 245);" text-decoration: underline;">   
-                        Pobierz bota </a>
-                    <div class="project-tags" style="margin-top: 12px; font-size: 12px;">
-                        <span class="tag">Discord.js</span>
-                        <span class="tag">Node.js</span>
-                    </div>
-                </div>
-                <div class="project-card" tabindex="0" aria-label="Strony Internetowe">
-                    <h3>🌐 Strony Internetowe</h3>
-                    <p>Strony Które zrobiłem sam.</p>
-                    <p>
-                        <a href="https://ex1stence713.github.io/qwanli/" target="_blank" style="color: rgb(245, 245, 245); text-decoration: underline;">
-                            Zobacz stronę dla Qwanli
-                        </a>
-                    </p>
-                    <div class="project-tags" style="margin-top: 12px; font-size: 12px;">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </div>
-            </div>
-</section>
-        <!-- WHY ME -->
-        <section class="section" id="why-me">
-            <h2 class="section-title">Czemu ja?</h2>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon">🎯</div>
-                    <h3>Fokus na rezultaty</h3>
-                    <p> Chodzi o to, aby Twój bot lub strona faktycznie działały i pomagały.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">🔧</div>
-                    <h3>Wsparcie techniczne</h3>
-                    <p>Po oddaniu projektu masz dostęp do wsparcia. Mogę naprawiać bugi, dodawać features, optymalizować kod.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">💬</div>
-                    <h3>Komunikacja</h3>
-                    <p>Jestem dostępny na Discordzie. Regularnie aktualizuję o postępach i odpowiadam na pytania.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">📈</div>
-                    <h3>Doświadczenie</h3>
-                    <p>3 lata w branży, 3 projekty, 100 zadowolonych użytkowników.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-icon">💰</div>
-                    <h3>Uczciwość</h3>
-                    <p>Brak ukrytych opłat,     brak niespodzianek. Wiesz dokładnie na co wydajesz pieniądze.</p>
-                </div>
-            </div>
-        </section>
-        <!-- CONTACT -->
-       <section id="contact" class="section contact-section">
-    <h2 class="section-title">Kontakt</h2>
-
-    <div class="contact-grid">
-        <a href="mailto:owowdjdd@gmail.com" class="contact-card">
-            <div class="contact-icon">📧</div>
-            <h3>Email</h3>
-            <p>owowdjdd@gmail.com</p>
-            <span class="contact-note">Odpowiedź do 24h</span>
-        </a>
-
-        <a href="https://discord.gg/nhUvFRjkkE" target="_blank" class="contact-card">
-            <div class="contact-icon">🌐</div>
-            <h3>Discord</h3>
-            <p>NexusTM</p>
-            <span class="contact-note">Społeczeństwo Gier</span>
-        </a>
-
-        <a href="https://github.com/Ex1stence713" target="_blank" class="contact-card">
-            <div class="contact-icon">💻</div>
-            <h3>GitHub</h3>
-            <p>Zayden</p>
-            <span class="contact-note">Repozytoria</span>
-        </a>
-        <a href="" target="_blank" class="contact-card">
-            <div class="contact-icon">💼</div>
-            <h3>Nazwa Konta </h3>
-            <p>@zaydenus:matrix.org</p>
-            <span class="contact-note">Odpowiedz do 12h</span>
-        </a>
+<audio id="bg-music" loop><source src="background.mp3" type="audio/mpeg"></audio>
+<div class="top-bar">
+    <div class="btn-top" id="clock">00:00:00</div> 
+    <div class="btn-top">
+        <button onclick="toggleMute()">
+            <i id="mute-icon" class="fas fa-volume-up"></i>
+        </button>
+        <input type="range" name="Volume" id="volmeeter" value="20" min="0" max="100">
     </div>
-    
-</section>
+</div>
 
-    </main>
-<footer class="footer-info">
-    © 2025 Zayden | Made with ❤️
-    <span style="float: right;">
-       Wszelkie Prawa Zastrzeżone.
-       </span>
+<div class="container">
+    <div class="tile p-profile full-width">
+        <img src="" id="av" alt="">
+        <div>
+            <h1 id="username">Zayden</h1>
+            <div class="status-box">
+                <div id="status-dot" class="dot"></div>
+                <span id="dis-status">Łączenie...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tile p-spotify full-width" id="lfm-tile">
+        <img src="" id="lfm-img">
+        <div class="sp-info">
+            <div style="font-size: 9px; color: var(--spotify); font-weight: 800; margin-bottom: 2px;">SPOTIFY</div>
+            <p id="lfm-track">...</p>
+        </div>
+        <i class="fab fa-spotify" style="margin-left: auto; color: var(--spotify);"></i>
+    </div>
+
+    <a href="https://www.youtube.com/@wrongthink52" target="_blank" class="tile">
+        <i class="fab fa-youtube"></i><span>YouTube </span>
+    </a>
+    <a href="https://steamcommunity.com/profiles/76561199517746377/" target="_blank" class="tile">
+        <i class="fab fa-steam"></i><span>Steam</span>
+    </a>
+    
+    <div class="tile full-width" style="cursor: pointer;" onclick="copy()">
+        <i class="fab fa-discord"></i><span id="discord-tag">_nighthunter_.</span>
+    </div>
+
+    <a href="https://twitch.tv/WcaleNieAzile" target="_blank" class="tile">
+        <i class="fab fa-twitch"></i><span>Twitch - Trwa Przerwa Techniczna</span>
+    </a>
+    <a href="https://www.instagram.com/en.e.ud/" target="_blank" class="tile">
+        <i class="fab fa-instagram"></i><span>Instagram</span>
+    </a>
+    <a href="https://github.com/Ex1stence713/" target="_blank" class="tile">
+        <i class="fab fa-github"></i><span>GitHub</span>
+    </a>
+    <a href="" target="_blank" class="tile">
+        <i class="fa-brands fa-x-twitter"></i><span>Twitter - Trwa Przerwa Techniczna</span>
+    </a>    
+    <a href="https://kick.com/zayden-tm" target="_blank" class="tile">
+    <i class="fa-brands fa-kickstarter-k"></i><span>Kick - Trwa Przerwa Techniczna</span>
+    </a>
+</div>
+
+<script src="script.js"></script>
+
+<footer style="position: fixed; bottom: 0; width: 100%; text-align: center; padding: 15px 0; font-size: 12px; color: #aaa; background-color: #111;">
+    &copy; 2026 Zayden. Wszelkie prawa zastrzeżone. Kopiowanie treści strony bez zgody autora zabronione.
 </footer>
 
-    <button class="scroll-top" id="scrollTop">↑</button>
-
-    <script src="script.js"></script>
-    <script>
-    // Animacja liczb w statystykach
-    document.addEventListener('DOMContentLoaded', function() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        statNumbers.forEach(function(el) {
-            const target = +el.getAttribute('data-count');
-            let count = 0;
-            const step = Math.max(1, Math.floor(target / 60));
-            const interval = setInterval(() => {
-                count += step;
-                if(count >= target) {
-                    el.textContent = target;
-                    clearInterval(interval);
-                } else {
-                    el.textContent = count;
-                }
-            }, 20);
-        });
-    });
-    // Efekt hover na kartach
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .stat-card:hover, .skill-card:hover, .project-card:hover, .opinia-card:hover {
-            box-shadow: 0 4px 24px rgba(0,212,255,0.18);
-            transform: translateY(-4px) scale(1.03);
-            transition: all 0.2s;
-        }
-        .opinia-card {
-            background: #f7faff;
-            border-radius: 10px;
-            padding: 18px 24px;
-            margin: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        }
-        .opinie-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-        }
-        .opinia-author {
-            font-size: 13px;
-            color: #00d4ff;
-            margin-top: 8px;
-        }
-    `;
-    document.head.appendChild(style);
-    </script>
 </body>
 </html>
