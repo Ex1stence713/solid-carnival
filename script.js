@@ -282,3 +282,17 @@ updateData();
 updateClock();
 
 const audio = document.getElementById('myAudio');
+{}
+  function showAbout() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("about").style.display = "block";
+    document.querySelector(".btn-about").style.display = "none";
+    document.querySelector(".btn-back").style.display = "inline-block";
+  }
+
+  function showHome() {
+    document.getElementById("about").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.querySelector(".btn-back").style.display = "none";
+    document.querySelector(".btn-about").style.display = "inline-block";
+  }
