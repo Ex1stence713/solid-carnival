@@ -1,5 +1,5 @@
 :root {
-    --bg: #101012;
+    --bg: url('background.jpg');
     --tile: rgba(20, 20, 25, 0.85);
     --border: rgba(255, 255, 255, 0.1);
     --accent: #bc13fe;
@@ -29,7 +29,7 @@ body { background: var(--bg); color: white; height: 100vh; display: flex; justif
 .crt-overlay {
     position: fixed; inset: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
-    background-size: 100% 4px;
+    background-size: 100% 20px;
     z-index: 1000; pointer-events: none;
     opacity: 0.3;
 }
@@ -151,7 +151,7 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: url(background.jpg)
     border: none;
     color: white;
     width: 40px;
@@ -166,14 +166,14 @@ body {
 }
 
 .mute-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
+    background: url(background.jpg)
 }
 
 .time {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: url(background.jpg);
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
