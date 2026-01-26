@@ -388,3 +388,44 @@ canvas {
                      0 0 40px #8a2be2;
     }
 }
+.btn-about {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #6c63ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-about:hover {
+  background: #574fe0;
+  transform: translateY(-2px);
+}
+.about-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.btn-back {
+  margin-top: 30px;
+  padding: 10px 22px;
+  background: transparent;
+  color: #6c63ff;
+  border: 2px solid #6c63ff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-back:hover {
+  background: #6c63ff;
+  color: #fff;
+}
