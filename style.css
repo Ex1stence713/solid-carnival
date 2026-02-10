@@ -828,3 +828,14 @@ body {
         left: 20px;
     }
 }
+body {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Discord ma działać normalnie */
+.discord-card,
+.discord-card * {
+    user-select: none;
+    -webkit-user-select: none;
+}

@@ -320,3 +320,14 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// Block right click everywhere
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
+
+// Block copy shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && ['c', 'a', 'u', 's'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+    }
+});
