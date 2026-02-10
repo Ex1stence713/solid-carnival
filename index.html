@@ -3,84 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayden | Bio</title>
+    <title>Zayden | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="crt-overlay"></div>
-<div id="notification">Skopiowano</div>
+<div id="matrix-bg"></div>
+<canvas id="grid"></canvas>
 
-<div id="overlay" onclick="launch()">
-    <div class="start-btn">START</div>
-</div>
+<div class="noise"></div>
 
-<audio id="bg-music" loop><source src="background.mp3" type="audio/mpeg"></audio>
-<div class="top-bar">
-    <div class="btn-top" id="clock">00:00:00</div> 
-    <div class="btn-top">
-        <button onclick="toggleMute()">
-            <i id="mute-icon" class="fas fa-volume-up"></i>
-        </button>
-        <input type="range" name="Volume" id="volmeeter" value="20" min="0" max="100">
+<div id="welcome-screen">
+    <div class="terminal-box">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+        </div>
+        <div class="terminal-body">
+            <p class="terminal-line">$ <span class="typed-text">initializing...</span><span class="cursor">|</span></p>
+            <p class="terminal-line fade-in">$ connecting to server...</p>
+            <p class="terminal-line fade-in">$ loading profile data...</p>
+            <button id="enter-btn" class="terminal-button">
+                <span>PRESS ENTER TO CONTINUE</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="tile p-profile full-width">
-        <img src="" id="av" alt="">
-        <div>
-            <h1 id="username">Zayden</h1>
-            <div class="status-box">
-                <div id="status-dot" class="dot"></div>
-                <span id="dis-status">Łączenie...</span>
+<div id="main-content" class="hidden">
+    
+    <nav class="topbar">
+        <div class="topbar-left">
+            <div class="status-indicator">
+                <div class="pulse-dot"></div>
+                <span>ONLINE</span>
             </div>
         </div>
-    </div>
-
-    <div class="tile p-spotify full-width" id="lfm-tile">
-        <img src="" id="lfm-img">
-        <div class="sp-info">
-            <div style="font-size: 9px; color: var(--spotify); font-weight: 800; margin-bottom: 2px;">SPOTIFY</div>
-            <p id="lfm-track">...</p>
+        <div class="topbar-center">
+            <div class="clock" id="clock">00:00:00</div>
         </div>
-        <i class="fab fa-spotify" style="margin-left: auto; color: var(--spotify);"></i>
+        <div class="topbar-right">
+            <div class="volume-control">
+                <button class="icon-btn" id="sound-toggle">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <input type="range" id="volume-slider" min="0" max="100" value="30" class="volume-slider">
+                <span class="volume-percent" id="volume-percent">30%</span>
+            </div>
+            <button class="icon-btn" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="hero-section">
+            <div class="avatar-container">
+                <div class="avatar-ring"></div>
+                <img src="" alt="Zayden" id="avatar" class="avatar">
+                <div class="avatar-status" id="discord-status"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="glitch-text" data-text="ZAYDEN">ZAYDEN</h1>
+                <p class="tagline">
+                    <span class="bracket">[</span>
+                    <span class="typed-role">Developer</span>
+                    <span class="bracket">]</span>
+                </p>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-label">STATUS</span>
+                        <span class="stat-value" id="status-text">Dostępny</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-label">LOCATION</span>
+                        <span class="stat-value">PL</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-label">UPTIME</span>
+                        <span class="stat-value" id="uptime">99.9%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="now-playing" id="spotify-widget" style="display: none;">
+            <div class="now-playing-header">
+                <i class="fab fa-spotify"></i>
+                <span>NOW PLAYING</span>
+                <div class="equalizer">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="now-playing-content">
+                <img src="" alt="Album" id="album-cover" class="album-cover">
+                <div class="track-info">
+                    <p class="track-name" id="track-name">Song Name</p>
+                    <p class="track-artist" id="track-artist">Artist</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <div class="line"></div>
+            <h2>// CONNECT WITH ME</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="links-wrapper">
+            
+            <a href="https://www.youtube.com/@wrongthink52" target="_blank" class="social-card youtube-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>YouTube</h3>
+                        <p>Video Content</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://steamcommunity.com/profiles/76561199517746377/" target="_blank" class="social-card steam-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-steam"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Steam</h3>
+                        <p>Gaming Profile</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <div class="social-card discord-card" onclick="copyDiscord()">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Discord</h3>
+                        <p id="discord-tag">_nighthunter_.</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-copy"></i>
+                </div>
+            </div>
+
+            <a href="https://www.instagram.com/en.e.ud/" target="_blank" class="social-card instagram-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Instagram</h3>
+                        <p>Photos & Stories</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://twitch.tv/WcaleNieAzile" target="_blank" class="social-card twitch-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-twitch"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Twitch</h3>
+                        <p>Live Streams</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://github.com/Ex1stence713/" target="_blank" class="social-card github-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>GitHub</h3>
+                        <p>Open Source</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="https://kick.com/zayden-tm" target="_blank" class="social-card kick-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-kickstarter-k"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Kick</h3>
+                        <p>Alternative Streams</p>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <div class="social-card twitter-card disabled-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-wrapper">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Twitter</h3>
+                        <p>Coming Soon</p>
+                    </div>
+                </div>
+                <div class="card-badge">SOON</div>
+            </div>
+
+        </div>
+
     </div>
 
-    <a href="https://www.youtube.com/@wrongthink52" target="_blank" class="tile">
-        <i class="fab fa-youtube"></i><span>YouTube </span>
-    </a>
-    <a href="https://steamcommunity.com/profiles/76561199517746377/" target="_blank" class="tile">
-        <i class="fab fa-steam"></i><span>Steam</span>
-    </a>
-    <div class="tile full-width" style="cursor: pointer;" onclick="copy()">
-        <i class="fab fa-discord"></i><span id="discord-tag">_nighthunter_.</span>
-    </div>
-    <a href="https://www.instagram.com/en.e.ud/" target="_blank" class="tile">
-        <i class="fab fa-instagram"></i><span>Instagram</span>
-    </a>
-    <a href="https://github.com/Ex1stence713/" target="_blank" class="tile">
-        <i class="fab fa-github"></i><span>GitHub</span>
-    </a>
-    <a href="" target="_blank" class="tile">
-        <i class="fa-brands fa-x-twitter"></i><span>Twitter - Trwa Przerwa Techniczna</span>
-    </a>    
-    <a href="about.html" class="tile">
-        <i class="fas fa-info-circle"></i><span>O mnie</span>
-    </a>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 ZAYDEN • ALL RIGHTS RESERVED</p>
+            <p class="footer-code">DESIGNED WITH <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
 </div>
+
+<div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span>Skopiowano do schowka!</span>
+</div>
+
+<audio id="bg-audio" loop>
+    <source src="background.mp3" type="audio/mpeg">
+</audio>
 
 <script src="script.js"></script>
-
-<footer style="position: fixed; bottom: 0; width: 100%; text-align: center; padding: 15px 0; font-size: 12px; color: #aaa; background-color: #111;">
-    &copy; 2026 Zayden. Wszelkie prawa zastrzeżone. Kopiowanie treści strony bez zgody autora zabronione.
-</footer>
-<!-- overlay / lightbox -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="">
-</div>
 
 </body>
 </html>
