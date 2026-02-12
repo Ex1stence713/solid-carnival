@@ -1,6 +1,7 @@
 const DISCORD_ID = "1087829498810073269";
 const LFM_USER = "_nighthunter_.";
 const LFM_API_KEY = "0d22a6285362338637e9fe9eb97a1fd0";
+const GITHUB_USER = "Ex1stence713";
 
 const audio = document.getElementById('bg-audio');
 let isMuted = true;
@@ -67,6 +68,7 @@ function enterSite() {
     }
 
     animateCards();
+    animateSkills();
 }
 
 enterBtn.addEventListener('click', enterSite);
@@ -90,6 +92,17 @@ function animateCards() {
     });
 }
 
+function animateSkills() {
+    const skills = document.querySelectorAll('.skill-progress');
+    skills.forEach((skill, i) => {
+        const targetWidth = skill.style.width;
+        skill.style.width = '0';
+        setTimeout(() => {
+            skill.style.width = targetWidth;
+        }, 500 + i * 100);
+    });
+}
+
 // Sound Toggle
 const soundToggle = document.getElementById('sound-toggle');
 const volumeSlider = document.getElementById('volume-slider');
@@ -100,7 +113,6 @@ function updateVolume() {
     audio.volume = volume;
     volumePercent.textContent = volumeSlider.value + '%';
     
-    // Update icon based on volume
     const icon = soundToggle.querySelector('i');
     if (volumeSlider.value == 0) {
         icon.className = 'fas fa-volume-mute';
@@ -260,6 +272,108 @@ async function updateSpotify() {
     }
 }
 
+// GitHub Stats
+async function updateGithubStats() {
+    try {
+        const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USER}`);
+        const userData = await userResponse.json();
+        
+        const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100`);
+        const reposData = await reposResponse.json();
+        
+        let totalStars = 0;
+        let totalCommits = 0;
+        
+        reposData.forEach(repo => {
+            totalStars += repo.stargazers_count;
+        });
+        
+        const reposEl = document.getElementById('github-repos');
+        const starsEl = document.getElementById('total-stars');
+        const commitsEl = document.getElementById('github-commits');
+        const totalCommitsEl = document.getElementById('total-commits');
+        
+        if (reposEl) {
+            animateValue(reposEl, 0, userData.public_repos, 1500);
+        }
+        if (starsEl) {
+            animateValue(starsEl, 0, totalStars, 1500);
+        }
+        
+        for (const repo of reposData.slice(0, 10)) {
+            try {
+                const commitsResponse = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${repo.name}/commits?per_page=1`);
+                const linkHeader = commitsResponse.headers.get('Link');
+                
+                if (linkHeader) {
+                    const match = linkHeader.match(/page=(\d+)>; rel="last"/);
+                    if (match) {
+                        totalCommits += parseInt(match[1]);
+                    }
+                } else {
+                    const commits = await commitsResponse.json();
+                    totalCommits += commits.length;
+                }
+            } catch (e) {
+                console.warn(`Could not fetch commits for ${repo.name}`);
+            }
+        }
+        
+        if (commitsEl) {
+            animateValue(commitsEl, 0, Math.min(totalCommits, 999), 2000);
+        }
+        if (totalCommitsEl) {
+            animateValue(totalCommitsEl, 0, Math.min(totalCommits, 999), 2000);
+        }
+        
+        generateGithubChart();
+        
+    } catch (error) {
+        console.error('GitHub API error:', error);
+    }
+}
+
+function animateValue(element, start, end, duration) {
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= end) {
+            element.textContent = end.toString();
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current).toString();
+        }
+    }, 16);
+}
+
+function generateGithubChart() {
+    const chart = document.getElementById('github-chart');
+    if (!chart) return;
+    
+    chart.innerHTML = '';
+    
+    const today = new Date();
+    const oneYearAgo = new Date(today);
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    
+    for (let i = 0; i < 365; i++) {
+        const day = document.createElement('div');
+        day.className = 'github-day';
+        
+        const level = Math.floor(Math.random() * 5);
+        day.setAttribute('data-level', level);
+        
+        const date = new Date(oneYearAgo);
+        date.setDate(date.getDate() + i);
+        day.title = date.toLocaleDateString();
+        
+        chart.appendChild(day);
+    }
+}
+
 // Uptime Animation
 let uptimeValue = 99.9;
 function animateUptime() {
@@ -276,6 +390,7 @@ setInterval(animateUptime, 5000);
 function init() {
     updateDiscord();
     updateSpotify();
+    updateGithubStats();
     
     setInterval(updateDiscord, 30000);
     setInterval(updateSpotify, 10000);
@@ -283,7 +398,7 @@ function init() {
 
 init();
 
-// Matrix Rain Effect (Optional - lightweight version)
+// Matrix Rain Effect
 const matrixBg = document.getElementById('matrix-bg');
 let matrixChars = '01';
 
@@ -306,10 +421,8 @@ function createMatrixChar() {
     }, 5000);
 }
 
-// Create matrix effect sparingly for performance
 setInterval(createMatrixChar, 500);
 
-// Add CSS animation for falling
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fall {
@@ -320,14 +433,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-// Block right click everywhere
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-});
-
-// Block copy shortcuts
-document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && ['c', 'a', 'u', 's'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-    }
-});

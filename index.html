@@ -40,7 +40,7 @@
         <div class="topbar-left">
             <div class="status-indicator">
                 <div class="pulse-dot"></div>
-                <span>ONLINE</span>
+                <span>Online</span>
             </div>
         </div>
         <div class="topbar-center">
@@ -52,8 +52,11 @@
                     <i class="fas fa-volume-up"></i>
                 </button>
                 <input type="range" id="volume-slider" min="0" max="100" value="30" class="volume-slider">
-                <span class="volume-percent" id="volume-percent">30%</span>
+                <span class="volume-percent" id="volume-percent">10%</span>
             </div>
+            <button class="icon-btn" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
@@ -66,7 +69,7 @@
                 <div class="avatar-status" id="discord-status"></div>
             </div>
             <div class="hero-content">
-                <h1 class="glitch-text" data-text="ZAYDEN">ZAYDEN</h1>
+                <h1 class="glitch-text" data-text="ZAYDEN">Zayden</h1>
                 <p class="tagline">
                     <span class="bracket">[</span>
                     <span class="typed-role">Developer</span>
@@ -74,17 +77,17 @@
                 </p>
                 <div class="stats-bar">
                     <div class="stat-item">
-                        <span class="stat-label">STATUS</span>
+                        <span class="stat-label">Status</span>
                         <span class="stat-value" id="status-text">Dostępny</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <span class="stat-label">LOCATION</span>
+                        <span class="stat-label">Lokalizacja</span>
                         <span class="stat-value">SK</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <span class="stat-label">UPTIME</span>
+                        <span class="stat-label">Uptime</span>
                         <span class="stat-value" id="uptime">99.9%</span>
                     </div>
                 </div>
@@ -104,6 +107,242 @@
                 <div class="track-info">
                     <p class="track-name" id="track-name">Song Name</p>
                     <p class="track-artist" id="track-artist">Artist</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <div class="line"></div>
+            <h2>// ABOUT ME</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="about-section">
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <div class="about-content">
+                    <h3>Full-Stack Developer</h3>
+                    <p>Specjalizuję się w tworzeniu serwerów MTA:SA RP oraz aplikacji webowych. Pasjonat czystego kodu i nowoczesnych technologii.</p>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="about-stat-item">
+                    <div class="about-stat-value" id="github-repos">0</div>
+                    <div class="about-stat-label">Repozytoriów</div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-value">3+</div>
+                    <div class="about-stat-label">Lat Doświadczenia</div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-value" id="github-commits">0</div>
+                    <div class="about-stat-label">Commitów</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <div class="line"></div>
+            <h2>// SKILLS</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon lua-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>Lua</h4>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                    <span class="skill-percent">95%</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon js-icon">
+                    <i class="fab fa-js"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>JavaScript</h4>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                    <span class="skill-percent">90%</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon html-icon">
+                    <i class="fab fa-html5"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>HTML/CSS</h4>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                    <span class="skill-percent">88%</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon sql-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>SQL/MySQL</h4>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon git-icon">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>Git/GitHub</h4>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                    <span class="skill-percent">80%</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon mta-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="skill-info">
+                    <h4>MTA:SA</h4>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                    <span class="skill-percent">92%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <div class="line"></div>
+            <h2>// PROJECTS</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="project-badges">
+                        <span class="project-badge lua">Lua</span>
+                        <span class="project-badge mta">MTA:SA</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Advanced RP System</h3>
+                <p class="project-desc">Kompletny system roleplay dla serwerów MTA:SA z dynamiczną gospodarką, fakcjami i zaawansowanym systemem prac.</p>
+                <div class="project-footer">
+                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i>
+                        <span>Zobacz kod</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="project-badges">
+                        <span class="project-badge lua">Lua</span>
+                        <span class="project-badge mta">MTA:SA</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Vehicle System</h3>
+                <p class="project-desc">Zaawansowany system pojazdów z tunningiem, naprawą, paliwem i mechanicznym damage systemem.</p>
+                <div class="project-footer">
+                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i>
+                        <span>Zobacz kod</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-badges">
+                        <span class="project-badge js">JavaScript</span>
+                        <span class="project-badge html">HTML/CSS</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Portfolio Website</h3>
+                <p class="project-desc">Nowoczesna strona portfolio z animacjami, dynamicznym contentem i integracją z API Discord/Spotify.</p>
+                <div class="project-footer">
+                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i>
+                        <span>Zobacz kod</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-badges">
+                        <span class="project-badge lua">Lua</span>
+                        <span class="project-badge mta">MTA:SA</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Anti-Cheat System</h3>
+                <p class="project-desc">Profesjonalny system anty-cheat wykrywający najpopularniejsze exploity i cheaty na serwerach MTA.</p>
+                <div class="project-footer">
+                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i>
+                        <span>Zobacz kod</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <div class="line"></div>
+            <h2>// GITHUB STATS</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="github-stats">
+            <div class="github-card">
+                <div class="github-card-header">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Activity</span>
+                </div>
+                <div class="github-chart" id="github-chart"></div>
+                <div class="github-legend">
+                    <span>Ostatnie 365 dni</span>
+                </div>
+            </div>
+            <div class="github-info-cards">
+                <div class="github-info-card">
+                    <i class="fas fa-code-branch"></i>
+                    <div>
+                        <div class="github-info-value" id="total-commits">0</div>
+                        <div class="github-info-label">Total Commits</div>
+                    </div>
+                </div>
+                <div class="github-info-card">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <div class="github-info-value" id="total-stars">0</div>
+                        <div class="github-info-label">Total Stars</div>
+                    </div>
                 </div>
             </div>
         </div>
