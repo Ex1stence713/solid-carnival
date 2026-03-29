@@ -1,509 +1,171 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayden | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paweł Zayden Gajewski Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="matrix-bg"></div>
-<canvas id="grid"></canvas>
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="#">PZG</a>
+  <ul class="nav-links">
+    <li><a href="#about">O mnie</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#videos">Video</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+</nav>
 
-<div class="noise"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
 
-<div id="welcome-screen">
-    <div class="terminal-box">
-        <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
+  <div class="hero-line"></div>
+
+  <p class="hero-eyebrow">Video Editor &amp; Content Creator</p>
+
+  <h1 class="hero-title">
+    Paweł<br>
+    <span class="outline">Zayden</span><br>
+    Gajewski
+  </h1>
+
+  <p class="hero-subtitle">
+    Montuję Reels, vlogi, krótkie filmy na tiktoka i YouTube. Każdy projekt to dla mnie nowa historia do mojego doświadczenia
+  </p>
+
+  <div class="hero-cta">
+    <a href="#portfolio" class="btn-primary">Zobacz prace</a>
+    <a href="#contact" class="btn-ghost">Napisz do mnie</a>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-dot"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div class="about-left">
+      <p class="section-label">O mnie</p>
+      <h2 class="section-title">O <br>mnie</h2>
+
+      <div class="about-text">
+        <p>Cześć! <span>Paweł Zayden Gajewski</span> Zajmuję się montażem wideo i ogólnie tworzeniem rzeczy, które dobrze się ogląda. Lubię, kiedy materiał ma klimat, jest dynamiczny i po prostu przyciąga uwagę od pierwszych sekund.</p>
+        <p>Niezależnie czy to krótkie formy na social media, czy coś dłuższego zawsze staram się zrobić to tak, żeby wyglądało profesjonalnie, ale jednocześnie naturalnie.</p>
+        <p>Każdy projekt to dla mnie nowe doświadczenie.</p>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Kadrów obejrzanych</div>
         </div>
-        <div class="terminal-body">
-            <p class="terminal-line">$ <span class="typed-text">initializing...</span><span class="cursor">|</span></p>
-            <p class="terminal-line fade-in">$ connecting to server...</p>
-            <p class="terminal-line fade-in">$ loading profile data...</p>
-            <button id="enter-btn" class="terminal-button">
-                <span>PRESS ENTER TO CONTINUE</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+        <div class="stat">
+          <div class="stat-number">01</div>
+          <div class="stat-label">Wersja finalna</div>
         </div>
-    </div>
-</div>
-
-<div id="main-content" class="hidden">
-    
-    <nav class="topbar">
-        <div class="topbar-left">
-            <div class="status-indicator">
-                <div class="pulse-dot"></div>
-                <span>Online</span>
-            </div>
+        <div class="stat">
+          <div class="stat-number">60 lub 30</div>
+          <div class="stat-label">FPS / zawsze</div>
         </div>
-        <div class="topbar-center">
-            <div class="clock" id="clock">00:00:00</div>
+        <div class="stat">
+          <div class="stat-number">∅</div>
+          <div class="stat-label">Nudnych cięć</div>
         </div>
-        <div class="topbar-right">
-            <div class="volume-control">
-                <button class="icon-btn" id="sound-toggle">
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <input type="range" id="volume-slider" min="0" max="100" value="30" class="volume-slider">
-                <span class="volume-percent" id="volume-percent">10%</span>
-            </div>
-            <button class="icon-btn" id="theme-toggle">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
-
-    <div class="container">
-        
-        <div class="hero-section">
-            <div class="avatar-container">
-                <div class="avatar-ring"></div>
-                <img src="" alt="Zayden" id="avatar" class="avatar">
-                <div class="avatar-status" id="discord-status"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="glitch-text" data-text="ZAYDEN">Zayden</h1>
-                <p class="tagline">
-                    <span class="bracket">[</span>
-                    <span class="typed-role">Developer</span>
-                    <span class="bracket">]</span>
-                </p>
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <span class="stat-label">Status</span>
-                        <span class="stat-value" id="status-text">Dostępny</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-label">Lokalizacja</span>
-                        <span class="stat-value">SK</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-label">Uptime</span>
-                        <span class="stat-value" id="uptime">99.9%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="now-playing" id="spotify-widget" style="display: none;">
-            <div class="now-playing-header">
-                <i class="fab fa-spotify"></i>
-                <span>NOW PLAYING</span>
-                <div class="equalizer">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-            <div class="now-playing-content">
-                <img src="" alt="Album" id="album-cover" class="album-cover">
-                <div class="track-info">
-                    <p class="track-name" id="track-name">Song Name</p>
-                    <p class="track-artist" id="track-artist">Artist</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <div class="line"></div>
-            <h2>// ABOUT ME</h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="about-section">
-            <div class="about-card">
-                <div class="about-icon">
-                    <i class="fas fa-terminal"></i>
-                </div>
-                <div class="about-content">
-                    <h3>Full-Stack Developer</h3>
-                    <p>Specjalizuję się w tworzeniu serwerów MTA:SA RP oraz aplikacji webowych. Pasjonat czystego kodu i nowoczesnych technologii.</p>
-                </div>
-            </div>
-            <div class="about-stats">
-                <div class="about-stat-item">
-                    <div class="about-stat-value" id="github-repos">0</div>
-                    <div class="about-stat-label">Repozytoriów</div>
-                </div>
-                <div class="about-stat-item">
-                    <div class="about-stat-value">3+</div>
-                    <div class="about-stat-label">Lat Doświadczenia</div>
-                </div>
-                <div class="about-stat-item">
-                    <div class="about-stat-value" id="github-commits">0</div>
-                    <div class="about-stat-label">Commitów</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <div class="line"></div>
-            <h2>// SKILLS</h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon lua-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>Lua</h4>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                    <span class="skill-percent">95%</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon js-icon">
-                    <i class="fab fa-js"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>JavaScript</h4>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                    <span class="skill-percent">70%</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon html-icon">
-                    <i class="fab fa-html5"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>HTML/CSS</h4>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%"></div>
-                    </div>
-                    <span class="skill-percent">50%</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon sql-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>SQL/MySQL</h4>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                    <span class="skill-percent">35%</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon git-icon">
-                    <i class="fab fa-git-alt"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>Git/GitHub</h4>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                    <span class="skill-percent">26%</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon mta-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <div class="skill-info">
-                    <h4>MTA:SA</h4>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 92%"></div>
-                    </div>
-                    <span class="skill-percent">80%</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <div class="line"></div>
-            <h2>// PROJECTS</h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <div class="project-badges">
-                        <span class="project-badge lua">Lua</span>
-                        <span class="project-badge mta">MTA:SA</span>
-                    </div>
-                </div>
-                <h3 class="project-title">Advanced RP System</h3>
-                <p class="project-desc">Kompletny system roleplay dla serwerów MTA:SA z dynamiczną gospodarką, fakcjami i zaawansowanym systemem prac.</p>
-                <div class="project-footer">
-                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i>
-                        <span>Zobacz kod</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <div class="project-badges">
-                        <span class="project-badge lua">Lua</span>
-                        <span class="project-badge mta">MTA:SA</span>
-                    </div>
-                </div>
-                <h3 class="project-title">Vehicle System</h3>
-                <p class="project-desc">Zaawansowany system pojazdów z tunningiem, naprawą, paliwem i mechanicznym damage systemem.</p>
-                <div class="project-footer">
-                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i>
-                        <span>Zobacz kod</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="project-badges">
-                        <span class="project-badge js">JavaScript</span>
-                        <span class="project-badge html">HTML/CSS</span>
-                    </div>
-                </div>
-                <h3 class="project-title">Portfolio Website</h3>
-                <p class="project-desc">Nowoczesna strona portfolio z animacjami, dynamicznym contentem i integracją z API Discord/Spotify.</p>
-                <div class="project-footer">
-                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i>
-                        <span>Zobacz kod</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="project-badges">
-                        <span class="project-badge lua">Lua</span>
-                        <span class="project-badge mta">MTA:SA</span>
-                    </div>
-                </div>
-                <h3 class="project-title">Anti-Cheat System</h3>
-                <p class="project-desc">Profesjonalny system anty-cheat wykrywający najpopularniejsze exploity i cheaty na serwerach MTA.</p>
-                <div class="project-footer">
-                    <a href="https://github.com/Ex1stence713/" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i>
-                        <span>Zobacz kod</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <div class="line"></div>
-            <h2>// GITHUB STATS</h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="github-stats">
-            <div class="github-card">
-                <div class="github-card-header">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub Activity</span>
-                </div>
-                <div class="github-chart" id="github-chart"></div>
-                <div class="github-legend">
-                    <span>Ostatnie 365 dni</span>
-                </div>
-            </div>
-            <div class="github-info-cards">
-                <div class="github-info-card">
-                    <i class="fas fa-code-branch"></i>
-                    <div>
-                        <div class="github-info-value" id="total-commits">0</div>
-                        <div class="github-info-label">Total Commits</div>
-                    </div>
-                </div>
-                <div class="github-info-card">
-                    <i class="fas fa-star"></i>
-                    <div>
-                        <div class="github-info-value" id="total-stars">0</div>
-                        <div class="github-info-label">Total Stars</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <div class="line"></div>
-            <h2>// CONNECT WITH ME</h2>
-            <div class="line"></div>
-        </div>
-
-        <div class="links-wrapper">
-            
-            <a href="https://www.youtube.com/@wrongthink52" target="_blank" class="social-card youtube-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>YouTube</h3>
-                        <p>Video Content</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <a href="https://steamcommunity.com/profiles/76561199517746377/" target="_blank" class="social-card steam-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fab fa-steam"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>Steam</h3>
-                        <p>Gaming Profile</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <div class="social-card discord-card" onclick="copyDiscord()">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fab fa-discord"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>Discord</h3>
-                        <p id="discord-tag">_nighthunter_.</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-copy"></i>
-                </div>
-            </div>
-
-            <a href="https://www.instagram.com/en.e.ud/" target="_blank" class="social-card instagram-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>Instagram</h3>
-                        <p>Photos & Stories</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <a href="https://twitch.tv/WcaleNieAzile" target="_blank" class="social-card twitch-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fab fa-twitch"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>Twitch</h3>
-                        <p>Live Streams</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <a href="https://github.com/Ex1stence713/" target="_blank" class="social-card github-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>GitHub</h3>
-                        <p>Open Source</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <a href="https://kick.com/zayden-tm" target="_blank" class="social-card kick-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fa-brands fa-kickstarter-k"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>Kick</h3>
-                        <p>Alternative Streams</p>
-                    </div>
-                </div>
-                <div class="card-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </a>
-
-            <div class="social-card twitter-card disabled-card">
-                <div class="card-glow"></div>
-                <div class="card-content">
-                    <div class="icon-wrapper">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </div>
-                    <div class="card-text">
-                        <h3>Twitter</h3>
-                        <p>Coming Soon</p>
-                    </div>
-                </div>
-                <div class="card-badge">SOON</div>
-            </div>
-
-        </div>
-
+      </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 ZAYDEN • Wszystkie Prawa Zastrzeżone</p>
-            <p class="footer-code">DESIGNED WITH <i class="fas fa-heart"></i></p>
+    <div class="about-right">
+      <p class="section-label">Narzędzia</p>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.05em;margin-bottom:32px;color:var(--muted)">Czego używam</h3>
+        <div class="skill-item">
+          <span class="skill-name">CapCut / Mobile</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
         </div>
-    </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
 
-<div id="toast" class="toast">
-    <i class="fas fa-check-circle"></i>
-    <span>Skopiowano do schowka!</span>
-</div>
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="videos-header">
+    <div>
+      <p class="section-label">Galeria Wideo</p>
+      <h2 class="section-title">Moje<br>Produkcje</h2>
+    </div>
+    <p style="font-size:13px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7">
+      Tutaj znajdziesz moje najlepsze produkcje wideo. Kliknij, aby obejrzeć.
+    </p>
+  </div>
 
-<audio id="bg-audio" loop>
-    <source src="background.mp3" type="audio/mpeg">
-</audio>
+  <div class="videos-grid" id="videos-grid">
+    <!-- Filmy będą ładowane dynamicznie -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label" style="justify-content:center">Kontakt</p>
+    <h2 class="section-title">Moje Social Media!.</h2>
+    <p class="contact-intro">
+      Szukasz montażysty do projektu? Chcesz się wymienić doświadczeniami? 
+      Napisz odpisuję szybko.
+    </p>
+
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:pawelgajewski12341151@gmail.com">
+        <div class="contact-icon">✉</div>
+        <p class="contact-platform">Email</p>
+        <p class="contact-handle">Napisz</p>
+      </a>
+      <a class="contact-item" href="https://www.instagram.com/zayden_.xv/" target="_blank">
+        <div class="contact-icon">◈</div>
+        <p class="contact-platform">Instagram</p>
+        <p class="contact-handle">@zayden</p>
+      </a>
+      <a class="contact-item" href="discord://discordapp.com/users/1087829498810073269" target="_blank">
+        <div class="contact-icon">☁</div>
+        <p class="contact-platform">Discord</p>
+        <p class="contact-handle">._nighthunter_.</p>
+      </a>
+    </div>
+
+    <div class="reel-dots">
+      <div class="reel-dot active"></div>
+      <div class="reel-line"></div>
+      <div class="reel-dot"></div>
+      <div class="reel-line"></div>
+      <div class="reel-dot"></div>
+      <div class="reel-line"></div>
+      <div class="reel-dot active"></div>
+      <div class="reel-line"></div>
+      <div class="reel-dot"></div>
+      <div class="reel-line"></div>
+      <div class="reel-dot"></div>
+      <div class="reel-line"></div>
+      <div class="reel-dot active"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">PZG — Editor</span>
+  <span class="footer-copy">© 2025 Paweł Zayden Gajewski</span>
+</footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
