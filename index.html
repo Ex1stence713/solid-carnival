@@ -1,171 +1,283 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paweł Zayden Gajewski Editor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zayden</title>
+    <meta
+      name="description"
+      content="Prosta, schludna strona startowa bez zbędnych animacji i szumu."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-dots" id="bg-dots" aria-hidden="true"></div>
 
-<!-- NAVIGATION -->
-<nav>
-  <a class="nav-logo" href="#">PZG</a>
-  <ul class="nav-links">
-    <li><a href="#about">O mnie</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#videos">Video</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-
-  <div class="hero-line"></div>
-
-  <p class="hero-eyebrow">Video Editor &amp; Content Creator</p>
-
-  <h1 class="hero-title">
-    Paweł<br>
-    <span class="outline">Zayden</span><br>
-    Gajewski
-  </h1>
-
-  <p class="hero-subtitle">
-    Montuję Reels, vlogi, krótkie filmy na tiktoka i YouTube. Każdy projekt to dla mnie nowa historia do mojego doświadczenia
-  </p>
-
-  <div class="hero-cta">
-    <a href="#portfolio" class="btn-primary">Zobacz prace</a>
-    <a href="#contact" class="btn-ghost">Napisz do mnie</a>
-  </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-dot"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about">
-    <div class="about-left">
-      <p class="section-label">O mnie</p>
-      <h2 class="section-title">O <br>mnie</h2>
-
-      <div class="about-text">
-        <p>Cześć! <span>Paweł Zayden Gajewski</span> Zajmuję się montażem wideo i ogólnie tworzeniem rzeczy, które dobrze się ogląda. Lubię, kiedy materiał ma klimat, jest dynamiczny i po prostu przyciąga uwagę od pierwszych sekund.</p>
-        <p>Niezależnie czy to krótkie formy na social media, czy coś dłuższego zawsze staram się zrobić to tak, żeby wyglądało profesjonalnie, ale jednocześnie naturalnie.</p>
-        <p>Każdy projekt to dla mnie nowe doświadczenie.</p>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">Zayden</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="about.html">O mnie</a>
+          <a href="#services">Usługi</a>
+          <a href="#contact">Kontakt</a>
+        </nav>
+        <a class="button button-small" href="#contact">Napisz do mnie</a>
       </div>
+    </header>
 
-      <div class="about-stats">
-        <div class="stat">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Kadrów obejrzanych</div>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Coś o mnie</p>
+            <h1>Cześć! 👋</h1>
+            <p class="lead">
+              Mam na imię Paweł. Lubię poznawać nowych ludzi, prowadzić ciekawe rozmowy i po prostu dobrze spędzać czas. Jestem osobą, która ceni sobie szczerość, poczucie humoru i dobry kontakt z drugim człowiekiem.
+
+W wolnym czasie zajmuję się różnymi rzeczami, słucham muzyki, oglądam filmy, gram i spędzam czas ze znajomymi. Lubię też próbować nowych rzeczy i rozwijać swoje zainteresowania.
+
+Jeśli już tutaj jesteś, mam nadzieję, że zostaniesz na trochę. Miło Cię poznać!
+            </p>
+            <div class="cta-row">
+              <a class="button" href="#contact">Skontaktuj sie</a>
+              <a class="button button-secondary" href="about.html">Więcej o mnie</a>
+            </div>
+            <ul class="mini-stats" aria-label="Statystyki osoby">
+              <li><strong>2+</strong><span>lata praktyki</span></li>
+              <li><strong>4</strong><span>projektów</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-panel" aria-label="Podgląd projektu">
+            <div class="panel-card card-top">
+              <span class="tag">Skillset</span>
+              <h2>Moje umiejętności</h2>
+
+              <div class="skill-list" aria-label="Lista umiejętności">
+                <div class="skill-item">
+                  <div class="skill-meta">
+                    <span>JavaScript</span>
+                    <strong>62%</strong>
+                  </div>
+                  <div class="skill-bar"><span style="width: 62%"></span></div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-meta">
+                    <span>HTML</span>
+                    <strong>43%</strong>
+                  </div>
+                  <div class="skill-bar"><span style="width: 43%"></span></div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-meta">
+                    <span>CSS</span>
+                    <strong>30%</strong>
+                  </div>
+                  <div class="skill-bar"><span style="width: 30%"></span></div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-meta">
+                    <span>Montaż filmów</span>
+                    <strong>85%</strong>
+                  </div>
+                  <div class="skill-bar"><span style="width: 85%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-card card-bottom">
+              <div class="line-row">
+                <span class="dot color-one"></span>
+                <span class="line short"></span>
+              </div>
+              <div class="line-row">
+                <span class="dot color-two"></span>
+                <span class="line medium"></span>
+              </div>
+              <div class="line-row">
+                <span class="dot color-three"></span>
+                <span class="line long"></span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-number">01</div>
-          <div class="stat-label">Wersja finalna</div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container section-header">
+          <p class="eyebrow">O mnie</p>
+          <h2>Robię rzeczy po ludzku, bez zbędnego chaosu.</h2>
         </div>
-        <div class="stat">
-          <div class="stat-number">60 lub 30</div>
-          <div class="stat-label">FPS / zawsze</div>
+
+        <div class="container cards">
+          <article class="info-card">
+            <div class="icon-box">1️⃣</div>
+            <h3>Przejrzystość</h3>
+            <p>Robie rzeczy tak, aby były łatwe do zrozumienia oraz użytku własnego bez nadmiernego kodowania</p>
+          </article>
+
+          <article class="info-card">
+            <div class="icon-box">2️⃣</div>
+            <h3>Automatyzacja</h3>
+            <p>Pomagam zautomatyzować powtarzalne zadania, aby praca była szybsza i łatwiejsza</p>
+          </article>
+
+          <article class="info-card">
+            <div class="icon-box">3️⃣</div>
+            <h3>Rozwój</h3>
+            <p>Pracuję nad sobą aby zdobyć więcej wiedzy i umiejętności</p>
+          </article>
         </div>
-        <div class="stat">
-          <div class="stat-number">∅</div>
-          <div class="stat-label">Nudnych cięć</div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container section-header">
+          <p class="eyebrow">Projekty</p>
+          <h2>Moje ostatnie realizacje.</h2>
         </div>
+
+        <div class="container projects-grid">
+          <article class="project-card">
+            <span class="project-tag">Web</span>
+            <h3>Portfolio osobiste</h3>
+            <p>Jednostronicowa strona z nowoczesnym, prostym stylem i mocnym przekazem.</p>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">Bot</span>
+            <h3>Discord automation</h3>
+            <p>Automatyzacja komunikacji, powiadomień i prostych zadań w serwerze Discord.</p>
+            <ul>
+              <li>Node.js</li>
+              <li>Bot</li>
+              <li>API</li>
+            </ul>
+          </article>
+          <article class="project-card">
+            <span class="project-tag">Media</span>
+            <h3>Montaż filmów</h3>
+            <p>Edytowanie materiałów wideo, krótkich clipów i treści do social media.</p>
+            <ul>
+              <li>Premiere</li>
+              <li>Cutting</li>
+              <li>Motion</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="section muted-section">
+        <div class="container split">
+          <div>
+            <p class="eyebrow">Co robię</p>
+            <h2>Pomagam zrealizować proste, konkretne rozwiązania.</h2>
+          </div>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>Strony internetowe</strong>
+              <span>Portfolio, małe strony i landing page.</span>
+            </div>
+            <div class="feature-item">
+              <strong>Boty i automatyzacja</strong>
+              <span>Systemy, które oszczędzają czas i upraszczają codzienną pracę.</span>
+            </div>
+            <div class="feature-item">
+              <strong>Wsparcie techniczne</strong>
+              <span>Pomagam dopracować projekt, poprawić UX i ułatwić dalszy rozwój.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split timeline-wrap">
+          <div>
+            <p class="eyebrow">Doświadczenie</p>
+            <h2>Trochę o mojej drodze.</h2>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-year">2022</span>
+              <div class="timeline-content">
+                <strong>Pierwsze kroki</strong>
+                <p>Zacząłem poznawać HTML, CSS i podstawy tworzenia stron internetowych.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">2023</span>
+              <div class="timeline-content">
+                <strong>Rozwój i praktyka</strong>
+                <p>Pracowałem nad pierwszymi projektami i zaczynałem budować własny styl.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">2024+</span>
+              <div class="timeline-content">
+                <strong>Projekty i automatyzacja</strong>
+                <p>Tworzę strony, automatyzacje i rozwiązania, które są proste i użyteczne.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted-section" id="music">
+        <div class="container music-wrap">
+          <div>
+            <p class="eyebrow">Muzyka</p>
+            <h2>Na chwilę odpoczynku.</h2>
+          </div>
+
+          <div class="music-box">
+            <div class="music-card">
+              <span class="music-label">Teraz Gramy</span>
+              <h3>Tax Free - Latamy</h3>
+              <a
+                class="music-link"
+                href="https://www.youtube.com/watch?v=QliuXIYYTZE&list=RDrVo9p9ijjT0&index=6"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Otwórz muzyke
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="brand">Zayden</div>
+          <p>Programowanie, web, automatyzacja.</p>
+        </div>
+        <a class="button" href="mailto:pawelpracagajewski@gmail.com">pawelpracagajewski@gmail.com</a>
       </div>
-    </div>
+    </footer>
 
-    <div class="about-right">
-      <p class="section-label">Narzędzia</p>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.05em;margin-bottom:32px;color:var(--muted)">Czego używam</h3>
-        <div class="skill-item">
-          <span class="skill-name">CapCut / Mobile</span>
-          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- VIDEOS -->
-<section id="videos">
-  <div class="videos-header">
-    <div>
-      <p class="section-label">Galeria Wideo</p>
-      <h2 class="section-title">Moje<br>Produkcje</h2>
-    </div>
-    <p style="font-size:13px;color:var(--muted);max-width:280px;text-align:right;line-height:1.7">
-      Tutaj znajdziesz moje najlepsze produkcje wideo. Kliknij, aby obejrzeć.
-    </p>
-  </div>
-
-  <div class="videos-grid" id="videos-grid">
-    <!-- Filmy będą ładowane dynamicznie -->
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <p class="section-label" style="justify-content:center">Kontakt</p>
-    <h2 class="section-title">Moje Social Media!.</h2>
-    <p class="contact-intro">
-      Szukasz montażysty do projektu? Chcesz się wymienić doświadczeniami? 
-      Napisz odpisuję szybko.
-    </p>
-
-    <div class="contact-grid">
-      <a class="contact-item" href="mailto:pawelgajewski12341151@gmail.com">
-        <div class="contact-icon">✉</div>
-        <p class="contact-platform">Email</p>
-        <p class="contact-handle">Napisz</p>
-      </a>
-      <a class="contact-item" href="https://www.instagram.com/zayden_.xv/" target="_blank">
-        <div class="contact-icon">◈</div>
-        <p class="contact-platform">Instagram</p>
-        <p class="contact-handle">@zayden</p>
-      </a>
-      <a class="contact-item" href="discord://discordapp.com/users/1087829498810073269" target="_blank">
-        <div class="contact-icon">☁</div>
-        <p class="contact-platform">Discord</p>
-        <p class="contact-handle">._nighthunter_.</p>
-      </a>
-    </div>
-
-    <div class="reel-dots">
-      <div class="reel-dot active"></div>
-      <div class="reel-line"></div>
-      <div class="reel-dot"></div>
-      <div class="reel-line"></div>
-      <div class="reel-dot"></div>
-      <div class="reel-line"></div>
-      <div class="reel-dot active"></div>
-      <div class="reel-line"></div>
-      <div class="reel-dot"></div>
-      <div class="reel-line"></div>
-      <div class="reel-dot"></div>
-      <div class="reel-line"></div>
-      <div class="reel-dot active"></div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">PZG — Editor</span>
-  <span class="footer-copy">© 2025 Paweł Zayden Gajewski</span>
-</footer>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
