@@ -25,3 +25,24 @@ if (bgDots) {
     bgDots.appendChild(dot);
   }
 }
+
+const revealItems = document.querySelectorAll('.reveal, .info-card, .project-card, .feature-item, .timeline-item, .music-card, .contact-panel, .contact-intro');
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  }
+);
+
+revealItems.forEach((item) => {
+  item.classList.add('reveal');
+  revealObserver.observe(item);
+});
