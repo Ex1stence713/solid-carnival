@@ -11,16 +11,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.google.com/specimen/Rye?categoryFilters=Appearance:%2FTheme%2FWoodtype&preview.script=Latn"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      href="https://fonts.google.com/specimen/Rye?categoryFilters=Appearance:%2FTheme%2FWoodtype&preview.script=Latn"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Ładowanie strony">
+      <div class="loader-content">
+        <span class="loader-brand">Zayden</span>
+        <p class="loader-message" id="loader-message">Przygotowuję stronę...</p>
+        <div class="loader-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="loader-progress-bar"></span>
+        </div>
+        <strong class="loader-percent" id="loader-percent">0%</strong>
+      </div>
+    </div>
     <div class="bg-dots" id="bg-dots" aria-hidden="true"></div>
 
     <header class="site-header">
@@ -58,16 +68,16 @@
 
           <div class="hero-panel" aria-label="Podgląd projektu">
             <div class="panel-card card-top">
-              <span class="tag">Skillset</span>
-              <h2>Moje umiejętności</h2>
+              <span class="tag">Umiejętności</span>
+              <h2></h2>
 
               <div class="skill-list" aria-label="Lista umiejętności">
                 <div class="skill-item">
                   <div class="skill-meta">
-                    <span>HTML5 / CSS3</span>
-                    <strong>90%</strong>
+                    <span>HTML</span>
+                    <strong>40%</strong>
                   </div>
-                  <div class="skill-bar"><span style="width: 90%"></span></div>
+                  <div class="skill-bar"><span class="skill-load-A" style="width: 40%"></span></div>
                 </div>
 
                 <div class="skill-item">
@@ -75,15 +85,15 @@
                     <span>JavaScript</span>
                     <strong>82%</strong>
                   </div>
-                  <div class="skill-bar"><span style="width: 82%"></span></div>
+                  <div class="skill-bar"><span class="skill-load-B" style="width: 82%"></span></div>
                 </div>
 
                 <div class="skill-item">
                   <div class="skill-meta">
                     <span>Montaż filmów</span>
-                    <strong>80%</strong>
+                    <strong>55%</strong>
                   </div>
-                  <div class="skill-bar"><span style="width: 80%"></span></div>
+                  <div class="skill-bar"><span class="skill-load-C" style="width: 55%"></span></div>
                 </div>
 
                 <div class="skill-item">
@@ -91,25 +101,12 @@
                     <span>Node.js</span>
                     <strong>45%</strong>
                   </div>
-                  <div class="skill-bar"><span style="width: 45%"></span></div>
+                  <div class="skill-bar"><span class="skill-load-D" style="width: 45%"></span></div>
                 </div>
                 </div>
               </div>
             </div>
 
-            <div class="panel-card card-bottom">
-              <div class="line-row">
-                <span class="dot color-one"></span>
-                <span class="line short"></span>
-              </div>
-              <div class="line-row">
-                <span class="dot color-two"></span>
-                <span class="line medium"></span>
-              </div>
-              <div class="line-row">
-                <span class="dot color-three"></span>
-                <span class="line long"></span>
-              </div>
             </div>
           </div>
         </div>
@@ -283,9 +280,12 @@
       <div class="container footer-wrap">
         <div>
           <div class="brand">Zayden</div>
-          <p>Programowanie, web, automatyzacja.</p>
+          <p>Boty Discord, Strony Internetowe</p>
         </div>
-        <a class="button" href="contact.html">pawelpracagajewski@gmail.com</a>
+        <div class="footer-actions">
+          <a class="button button-secondary" href="https://discord.gg/jVQqcZz2kB" target="_blank" rel="noreferrer">Dołącz na Discord</a>
+          <a class="button" href="mailto:pawelpracagajewski@gmail.com">pawelpracagajewski@gmail.com</a>
+        </div>
       </div>
     </footer>
 

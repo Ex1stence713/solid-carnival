@@ -21,6 +21,16 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-label="Ładowanie strony">
+      <div class="loader-content">
+        <span class="loader-brand">Zayden</span>
+        <p class="loader-message" id="loader-message">Przygotowuję stronę...</p>
+        <div class="loader-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="loader-progress-bar"></span>
+        </div>
+        <strong class="loader-percent" id="loader-percent">0%</strong>
+      </div>
+    </div>
     <div class="bg-dots" id="bg-dots" aria-hidden="true"></div>
 
     <header class="site-header">
@@ -107,7 +117,10 @@
           <div class="brand">Zayden</div>
           <p>Programowanie, web, automatyzacja.</p>
         </div>
-        <a class="button" href="mailto:pawelpracagajewski@gmail.com">pawelpracagajewski@gmail.com</a>
+        <div class="footer-actions">
+          <a class="button button-secondary" href="https://discord.gg/2RkDGfwtdp" target="_blank" rel="noreferrer">Dołącz na Discord</a>
+          <a class="button" href="mailto:pawelpracagajewski@gmail.com">pawelpracagajewski@gmail.com</a>
+        </div>
       </div>
     </footer>
 

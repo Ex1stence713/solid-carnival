@@ -1,3 +1,52 @@
+const pageLoader = document.getElementById('page-loader');
+const loaderBar = document.getElementById('loader-progress-bar');
+const loaderPercent = document.getElementById('loader-percent');
+const loaderMessage = document.getElementById('loader-message');
+const loaderProgress = document.querySelector('.loader-progress');
+
+if (pageLoader && loaderBar && loaderPercent && loaderMessage && loaderProgress) {
+  const messages = [
+    [15, 'Uruchamiam projekt...'],
+    [40, 'Ładuję zasoby...'],
+    [70, 'Układam interfejs...'],
+    [90, 'Prawie gotowe...']
+  ];
+  let progress = 0;
+  let messageIndex = 0;
+  const loaderStartedAt = Date.now();
+  const minimumLoaderTime = 1000; // 1.0 second
+
+  const updateLoader = (value) => {
+    progress = Math.min(value, 100);
+    loaderBar.style.width = `${progress}%`;
+    loaderPercent.textContent = `${progress}%`;
+    loaderProgress.setAttribute('aria-valuenow', progress);
+
+    if (messageIndex < messages.length && progress >= messages[messageIndex][0]) {
+      loaderMessage.textContent = messages[messageIndex][1];
+      messageIndex += 1;
+    }
+  };
+
+  const loadingInterval = window.setInterval(() => {
+    if (progress < 90) {
+      updateLoader(progress + Math.ceil(Math.random() * 8));
+    }
+  }, 180);
+
+  window.addEventListener('load', () => {
+    window.clearInterval(loadingInterval);
+    const finishLoading = () => {
+      updateLoader(100);
+      loaderMessage.textContent = 'Gotowe!';
+      window.setTimeout(() => pageLoader.classList.add('is-hidden'), 500);
+    };
+    const remainingTime = minimumLoaderTime - (Date.now() - loaderStartedAt);
+
+    window.setTimeout(finishLoading, Math.max(remainingTime, 0));
+  });
+}
+
 const bgDots = document.getElementById('bg-dots');
 
 if (bgDots) {
@@ -46,3 +95,25 @@ revealItems.forEach((item) => {
   item.classList.add('reveal');
   revealObserver.observe(item);
 });
+
+const filterButtons = document.querySelectorAll('.filter-button');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (filterButtons.length > 0 && projectCards.length) {
+filterButtons.forEach((buttton) => {
+  button.addEventListener('click', () => {
+    const selectedFilter = button.dataset.filter;
+
+    filterButtons.forEach((filterButton) => {
+      filterButton.classList.remove('active');
+    });
+    button.classList.add('active');
+
+    projectCards.forEach((card) => {
+      const cardCategory = card.dataset.category;
+      const shouldShow = selectedFilter === 'all' || cardCategory === selectedFilter;
+      card.style.display = shouldShow ? 'block' : 'none';
+    });
+  });
+});
+}
